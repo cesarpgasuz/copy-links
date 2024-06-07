@@ -1,5 +1,5 @@
 import { useState } from "react"
-import toast, {Toaster} from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast'
 
 const Formulario = ({ liga, setLiga }) => {
 
@@ -9,22 +9,25 @@ const Formulario = ({ liga, setLiga }) => {
     const [serie, setSerie] = useState('')
     // numero de la coleccion
     const [coleccion, setColeccion] = useState('')
+    //activar gumroad 
+    const [isChecked, setIsChecked] = useState(false);
     //link gumroad 
     const [gumroad, setGumroad] = useState('')
 
 
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        
 
-        if([nombre, serie, coleccion].includes('')){
+
+        if ([nombre, serie, coleccion].includes('')) {
             toast.error("hay campos vacios")
             return
         }
 
-        
 
-        setLiga({nombre, serie, coleccion, gumroad})
+
+        setLiga({ nombre, serie, coleccion, gumroad, isChecked })
         console.log('link generado..')
 
     }
@@ -35,9 +38,10 @@ const Formulario = ({ liga, setLiga }) => {
         setColeccion('')
         setGumroad('')
         setLiga({})
+        setIsChecked(false)
     }
 
-
+    
     return (
         <div className="sm:w-2/5 sm:h-screen bg-sky-950">
             <Toaster />
@@ -67,13 +71,23 @@ const Formulario = ({ liga, setLiga }) => {
                 <label htmlFor="coleccion" className="font-bold text-slate-950 text-xl mb-2 block">No. Coleccion</label>
                 <input
                     id="coleccion"
-                    type="text"
+                    type="number"
                     name=""
                     placeholder="Ingresa el no de la coleccion"
                     className="w-full border border-slate-300 mb-3 py-2 px-2 block"
                     value={coleccion}
                     onChange={(e) => setColeccion(e.target.value)}
                 />
+                <div className="flex items-center gap-3">
+                    <label htmlFor="checkBox" className="font-bold text-slate-950 text-lg mb-2 block">Producto de Gumroad</label>
+                    <input
+                        id="checkBox"
+                        type="checkbox"
+                        checked={isChecked}
+                        onChange={() => setIsChecked(!isChecked)}
+                    />
+                </div>
+
                 <label htmlFor="gumroad" className="font-bold text-slate-950 text-xl mb-2 block">Link Gumroad <strong className="text-pink-700">**</strong></label>
                 <input
                     id="gumroad"
@@ -90,7 +104,7 @@ const Formulario = ({ liga, setLiga }) => {
                     className="mt-4 bg-lime-400 hover:bg-black hover:text-lime-400 text-black font-bold text-lg uppercase hover:cursor-pointer w-full py-4"
                     value='Generar Links'
                 />
-                
+
             </form>
             <button onClick={handleLimpiarFormulario} className="mx-auto block w-fit text-cyan-300 hover:border-b-2 pb-2 hover:border-cyan-300">Limpia Formulario</button>
         </div>

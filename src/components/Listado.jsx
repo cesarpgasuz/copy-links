@@ -6,7 +6,7 @@ import ArticleBody from './ui/ArticleBody';
 import { quitarEspacios, mayusculas, textosConGuion } from '../utilities';
 
 const Listado = ({ liga }) => {
-    const { nombre, serie, coleccion, gumroad } = liga;
+    const { nombre, serie, coleccion, gumroad, isChecked } = liga;
     const cardRef = useRef(null);
     const card2Ref = useRef(null);
     const card3Ref = useRef(null);
@@ -19,6 +19,7 @@ const Listado = ({ liga }) => {
     const card10Ref = useRef(null);
     const card11Ref = useRef(null);
     const card12Ref = useRef(null);
+    const card13Ref = useRef(null);
 
     const handleCopyCard1 = () => {
         copyToClipboard(cardRef.current);
@@ -69,6 +70,10 @@ const Listado = ({ liga }) => {
         copyToClipboard(card12Ref.current);
         toast.success('Texto Copiado')
     };
+    const handleCopyCard13 = () => {
+        copyToClipboard(card13Ref.current);
+        toast.success('Texto Copiado')
+    };
 
     const copyToClipboard = (element) => {
         if (element) {
@@ -83,7 +88,6 @@ const Listado = ({ liga }) => {
     };
 
 
-
     return (
         <div className="sm:w-3/5 h-full mt-12 px-6 sm:h-screen sm:mt-0 bg-white overflow-y-auto pt-5">
             {liga && liga.nombre ? (
@@ -92,7 +96,7 @@ const Listado = ({ liga }) => {
                     <h2 className='font-bold text-2xl text-slate-950'>{mayusculas(nombre)}</h2>
                     <span className='text-slate-400'>{mayusculas(serie)}</span> <span className='text-slate-600 font-bold'>#{coleccion}</span>
 
-                    <section className='grid grid-cols-2 gap-4 pt-5 pb-10'>
+                    <section className='flex flex-col gap-4 pt-5 pb-10'>
                         {/* archivos winrar */}
                         <Article>
                             <ArticleTitle>Winrar IA</ArticleTitle>
@@ -134,27 +138,25 @@ const Listado = ({ liga }) => {
                             </ArticleBody>
                         </Article>
 
+                        
+                        <Article>
+                            <ArticleTitle>Facebook, Twitter, Instagram</ArticleTitle>
+                            <ArticleBody>
+                                <div ref={card4Ref}>
+                                    <strong>{mayusculas(nombre)}</strong><br />
+                                    <span>👉 https://monaschinas.link</span><br /><br />
+                                    <span>#{quitarEspacios(nombre).toLowerCase()} #{quitarEspacios(serie).toLowerCase()} #AIart #AIphoto #anime #AiAnime #AIanimegirl #DigitalArt #AIArtwork #aigirls #animeIA #waifu #cosplay</span>
+                                </div>
+                                <button className='button-copy' onClick={handleCopyCard4}>Copy</button>
+                            </ArticleBody>
 
-                        {gumroad && (
+                        </Article>
+
+
+                        {isChecked && (
+
+
                             <>
-
-                                <Article>
-                                    <ArticleTitle>Gumroad IA - Title</ArticleTitle>
-                                    <ArticleBody>
-                                        <p ref={card9Ref}>{mayusculas(nombre)} IA #{coleccion} - {mayusculas(serie)}</p>
-                                        <button className='button-copy' onClick={handleCopyCard9}>Copy</button>
-                                    </ArticleBody>
-                                </Article>
-
-                                <Article>
-                                    <ArticleTitle>Gumroad Anime - Title</ArticleTitle>
-                                    <ArticleBody>
-                                        <p ref={card10Ref}>{mayusculas(nombre)} Anime #{coleccion} - {mayusculas(serie)}</p>
-                                        <button className='button-copy' onClick={handleCopyCard10}>Copy</button>
-                                    </ArticleBody>
-                                </Article>
-
-
                                 <Article>
                                     <ArticleTitle>FIgma IA</ArticleTitle>
                                     <ArticleBody>
@@ -172,35 +174,32 @@ const Listado = ({ liga }) => {
                                     <ArticleTitle>Figma Anime</ArticleTitle>
                                     <ArticleBody>
                                         <div ref={card12Ref}>
-                                        <strong>{mayusculas(nombre)} Anime #{coleccion}</strong><br />
+                                            <strong>{mayusculas(nombre)} Anime #{coleccion}</strong><br />
                                             <span>{mayusculas(serie)}</span>
                                         </div>
                                         <button className='button-copy' onClick={handleCopyCard12}>Copy</button>
                                     </ArticleBody>
 
                                 </Article>
-
-
+                                <Article>
+                                    <ArticleTitle>Gumroad IA - Title</ArticleTitle>
+                                    <ArticleBody>
+                                        <p ref={card9Ref}>{mayusculas(nombre)} IA #{coleccion} - {mayusculas(serie)}</p>
+                                        <button className='button-copy' onClick={handleCopyCard9}>Copy</button>
+                                    </ArticleBody>
+                                </Article>
+                                <Article>
+                                    <ArticleTitle>Gumroad Anime - Title</ArticleTitle>
+                                    <ArticleBody>
+                                        <p ref={card10Ref}>{mayusculas(nombre)} Anime #{coleccion} - {mayusculas(serie)}</p>
+                                        <button className='button-copy' onClick={handleCopyCard10}>Copy</button>
+                                    </ArticleBody>
+                                </Article>
                             </>
 
                         )}
 
 
-
-
-
-                        <Article>
-                            <ArticleTitle>Facebook, Twitter, Instagram</ArticleTitle>
-                            <ArticleBody>
-                                <div ref={card4Ref}>
-                                    <strong>{mayusculas(nombre)}</strong><br />
-                                    <span>👉 https://monaschinas.link</span><br /><br />
-                                    <span>#{quitarEspacios(nombre).toLowerCase()} #{quitarEspacios(serie).toLowerCase()} #AIart #AIphoto #anime #AiAnime #AIanimegirl #DigitalArt #AIArtwork #aigirls #animeIA #waifu #cosplay</span>
-                                </div>
-                                <button className='button-copy' onClick={handleCopyCard4}>Copy</button>
-                            </ArticleBody>
-
-                        </Article>
 
                         <Article>
                             <ArticleTitle>Pixiv Title</ArticleTitle>
@@ -210,24 +209,56 @@ const Listado = ({ liga }) => {
                             </ArticleBody>
                         </Article>
 
-                        <Article>
-                            <ArticleTitle>Pixiv Body</ArticleTitle>
-                            <ArticleBody>
-                                <div ref={card6Ref}>
-                                    <span>Uncensored images 🔥</span><br />
-                                    <span>👉 https://monaschinas.link</span><br /><br />
 
-                                    {gumroad && (
-                                        <>
-                                            <span>Buy Collection Separately</span><br />
-                                            <span className='break-words'>👉 {gumroad} 👈</span><br /><br />
-                                        </>
-                                    )}
+                        {!isChecked && (
 
-                                </div>
-                                <button className='button-copy' onClick={handleCopyCard6}>Copy</button>
-                            </ArticleBody>
-                        </Article>
+                            <Article>
+                                <ArticleTitle>Pixiv Body Sin Gumroad</ArticleTitle>
+                                <ArticleBody>
+                                    <div ref={card13Ref}>
+                                        <span>👇👇find various uncensored images in  🔥</span><br />
+                                        <span>👉 https://monaschinas.link  </span><br /><br />
+                                    </div>
+                                    <button className='button-copy' onClick={handleCopyCard13}>Copy</button>
+                                </ArticleBody>
+                            </Article>
+                        )}
+
+
+                        {gumroad && (
+                            <>
+
+                                <Article>
+                                    <ArticleTitle>Pixiv Body</ArticleTitle>
+                                    <ArticleBody>
+                                        <div ref={card6Ref}>
+                                            <span>Uncensored images 🔥</span><br />
+                                            <span>👉 https://monaschinas.link</span><br /><br />
+
+                                            {gumroad && (
+                                                <>
+                                                    <span>Buy Collection Separately</span><br />
+                                                    <span className='break-words'>👉 {gumroad} 👈</span><br /><br />
+                                                </>
+                                            )}
+
+                                        </div>
+                                        <button className='button-copy' onClick={handleCopyCard6}>Copy</button>
+                                    </ArticleBody>
+                                </Article>
+
+                            </>
+
+                        )}
+
+
+
+
+
+
+
+
+
 
                     </section>
 
