@@ -20,6 +20,7 @@ const Listado = ({ liga }) => {
     const card11Ref = useRef(null);
     const card12Ref = useRef(null);
     const card13Ref = useRef(null);
+    const card14Ref = useRef(null);
 
     const handleCopyCard1 = () => {
         copyToClipboard(cardRef.current);
@@ -72,6 +73,10 @@ const Listado = ({ liga }) => {
     };
     const handleCopyCard13 = () => {
         copyToClipboard(card13Ref.current);
+        toast.success('Texto Copiado')
+    };
+    const handleCopyCard14 = () => {
+        copyToClipboard(card14Ref.current);
         toast.success('Texto Copiado')
     };
 
@@ -138,7 +143,7 @@ const Listado = ({ liga }) => {
                             </ArticleBody>
                         </Article>
 
-                        
+
                         <Article>
                             <ArticleTitle>Facebook, Twitter, Instagram</ArticleTitle>
                             <ArticleBody>
@@ -151,6 +156,16 @@ const Listado = ({ liga }) => {
                             </ArticleBody>
 
                         </Article>
+
+                        <Article>
+                            <ArticleTitle>Grupo Facebook</ArticleTitle>
+                            <ArticleBody>
+                                <p ref={card14Ref}>{mayusculas(nombre)} - {serie}</p>
+                                <button className='button-copy' onClick={handleCopyCard14}>Copy</button>
+                            </ArticleBody>
+
+                        </Article>
+
 
 
                         {isChecked && (
@@ -216,7 +231,9 @@ const Listado = ({ liga }) => {
                                 <ArticleTitle>Pixiv Body Sin Gumroad</ArticleTitle>
                                 <ArticleBody>
                                     <div ref={card13Ref}>
-                                        <span>👇👇find various uncensored images in  🔥</span><br />
+                                        <span>👇👇Find various uncensored images in  🔥</span><br />
+                                        <span>👉 https://www.patreon.com/monaschinas_ia  </span><br /><br />
+                                        <span>👇👇Social networks  🔥</span><br />
                                         <span>👉 https://monaschinas.link  </span><br /><br />
                                     </div>
                                     <button className='button-copy' onClick={handleCopyCard13}>Copy</button>
@@ -233,7 +250,9 @@ const Listado = ({ liga }) => {
                                     <ArticleBody>
                                         <div ref={card6Ref}>
                                             <span>Uncensored images 🔥</span><br />
-                                            <span>👉 https://monaschinas.link</span><br /><br />
+                                            <span>👉 https://www.patreon.com/monaschinas_ia  </span><br /><br />
+                                            <span>👇👇Social networks  🔥</span><br />
+                                            <span>👉 https://monaschinas.link  </span><br /><br />
 
                                             {gumroad && (
                                                 <>
