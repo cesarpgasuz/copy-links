@@ -160,7 +160,7 @@ const Listado = ({ liga }) => {
                         <Article>
                             <ArticleTitle>Grupo Facebook</ArticleTitle>
                             <ArticleBody>
-                                <p ref={card14Ref}>{mayusculas(nombre)} - {serie}</p>
+                                <p ref={card14Ref}>{mayusculas(nombre)} - {mayusculas(serie)}</p>
                                 <button className='button-copy' onClick={handleCopyCard14}>Copy</button>
                             </ArticleBody>
 
