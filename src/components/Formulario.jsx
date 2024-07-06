@@ -28,7 +28,6 @@ const Formulario = ({ liga, setLiga }) => {
 
 
         setLiga({ nombre, serie, coleccion, gumroad, isChecked })
-        console.log('link generado..')
 
     }
 

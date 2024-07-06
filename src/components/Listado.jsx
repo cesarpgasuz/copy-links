@@ -21,6 +21,7 @@ const Listado = ({ liga }) => {
     const card12Ref = useRef(null);
     const card13Ref = useRef(null);
     const card14Ref = useRef(null);
+    const card15Ref = useRef(null)
 
     const handleCopyCard1 = () => {
         copyToClipboard(cardRef.current);
@@ -77,6 +78,10 @@ const Listado = ({ liga }) => {
     };
     const handleCopyCard14 = () => {
         copyToClipboard(card14Ref.current);
+        toast.success('Texto Copiado')
+    };
+    const handleCopyCard15 = () => {
+        copyToClipboard(card15Ref.current);
         toast.success('Texto Copiado')
     };
 
@@ -272,7 +277,27 @@ const Listado = ({ liga }) => {
 
 
 
+                        <Article>
+                            <ArticleTitle>Gumroad Anime - Title</ArticleTitle>
+                            <ArticleBody>
+                                <div ref={card15Ref}>
+                                    <p>このサイトのすべての画像はAIによって生成されたイラストであり、写真ではありません。画像の中の人物は実在しません。画像の中のすべてのキャラクターは20歳以上の大人です。</p>
+                                    <br />
+                                    <p>本网站所有图片均为人工智能生成的插图，而非照片。图中人物非真实存在。图中所有角色均为20岁以上的成年人。</p>
+                                    <br />
+                                    <p>
+جميع الصور على هذا الموقع هي رسوم توضيحية تم إنشاؤها بواسطة الذكاء الاصطناعي، وليست صورًا فوتوغرافية. الشخص في الصورة ليس حقيقيًا. جميع الشخصيات في الصورة هم بالغون يتجاوزون عمرهم 20 عامًا.
 
+</p><br />
+                                    <p>Все изображения на этом сайте - это иллюстрации, созданные искусственным интеллектом, а не фотографии. Человек на изображении не реален. Все персонажи на изображении - взрослые старше 20 лет.</p>
+                                    <br />
+                                    <p>All images on this site are AI-generated illustrations, not photographs. The person in the image is not real. All characters in the image are adults over 20 years old.</p>
+                                    <br />
+                                    <p>Todas las imágenes en este sitio son ilustraciones generadas por inteligencia artificial, no fotografías. La persona en la imagen no es real. Todos los personajes en la imagen son adultos mayores de 20 años.</p>
+                                </div>
+                                <button className='button-copy' onClick={handleCopyCard15}>Copy</button>
+                            </ArticleBody>
+                        </Article>
 
 
 
