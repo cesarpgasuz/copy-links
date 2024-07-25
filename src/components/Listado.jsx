@@ -3,10 +3,10 @@ import toast, { Toaster } from 'react-hot-toast'
 import Article from './ui/Article';
 import ArticleTitle from './ui/ArticleTitle';
 import ArticleBody from './ui/ArticleBody';
-import { quitarEspacios, mayusculas, textosConGuion } from '../utilities';
+import { quitarEspacios, mayusculas, textosConGuion, eliminarCadenaPatreon } from '../utilities';
 
 const Listado = ({ liga }) => {
-    const { nombre, serie, coleccion, gumroad, isChecked } = liga;
+    const { nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas } = liga;
     const cardRef = useRef(null);
     const card2Ref = useRef(null);
     const card3Ref = useRef(null);
@@ -21,7 +21,10 @@ const Listado = ({ liga }) => {
     const card12Ref = useRef(null);
     const card13Ref = useRef(null);
     const card14Ref = useRef(null);
-    const card15Ref = useRef(null)
+    const card15Ref = useRef(null);
+    const nombreRef = useRef(null);
+    const cardTitleJaponesRef = useRef(null);
+    const serieRef = useRef(null)
 
     const handleCopyCard1 = () => {
         copyToClipboard(cardRef.current);
@@ -85,6 +88,21 @@ const Listado = ({ liga }) => {
         toast.success('Texto Copiado')
     };
 
+    const handleCopyNombreRef = () => {
+        copyToClipboard(nombreRef.current);
+        toast.success('Texto Copiado')
+    };
+
+    const handleCopyCardTitleJaponesRef = () => {
+        copyToClipboard(cardTitleJaponesRef.current);
+        toast.success('Texto Copiado')
+    };
+
+    const handleCopySerieRef = () => {
+        copyToClipboard(serieRef.current);
+        toast.success('Texto Copiado')
+    };
+
     const copyToClipboard = (element) => {
         if (element) {
             const selection = window.getSelection();
@@ -103,73 +121,110 @@ const Listado = ({ liga }) => {
             {liga && liga.nombre ? (
                 <main>
                     <Toaster />
-                    <h2 className='font-bold text-2xl text-slate-950'>{mayusculas(nombre)}</h2>
-                    <span className='text-slate-400'>{mayusculas(serie)}</span> <span className='text-slate-600 font-bold'>#{coleccion}</span>
+                    <div className='flex items-center gap-4'>
+                        <h2 className='font-bold text-2xl text-slate-950' ref={nombreRef}>{mayusculas(nombre)}</h2>
+                        <button onClick={handleCopyNombreRef} className='bg-slate-100 px-2 border border-slate-200 rounded'>copiar</button>
+                    </div>
 
+                    <div className='flex items-center gap-4'>
+                       <button onClick={handleCopySerieRef} className='bg-slate-100 px-2 border border-slate-200 rounded'>copiar</button><span className='text-slate-400' ref={serieRef}>{mayusculas(serie)}</span> <span className='text-slate-600 font-bold'>#{coleccion}</span>
+                    </div>
+                   
                     <section className='flex flex-col gap-4 pt-5 pb-10'>
+
                         {/* archivos winrar */}
                         <Article>
-                            <ArticleTitle>Winrar IA</ArticleTitle>
+                            <ArticleTitle>{monitas ? 'Winrar Monitas Chinas' : 'Winrar IA'}</ArticleTitle>
                             <ArticleBody>
-                                <p ref={card7Ref}>{`${textosConGuion(nombre)}_IA_${coleccion}`}</p>
+                                <p ref={card7Ref}>{monitas ? `${textosConGuion(nombre)}_${coleccion}` : `${textosConGuion(nombre)}_IA_${coleccion}`}</p>
                                 <button className='button-copy' onClick={handleCopyCard7}>Copy</button>
                             </ArticleBody>
                         </Article>
-                        <Article>
-                            <ArticleTitle>Winrar Anime</ArticleTitle>
-                            <ArticleBody>
-                                <p ref={card8Ref}>{`${textosConGuion(nombre)}_Anime_${coleccion}`}</p>
-                                <button className='button-copy' onClick={handleCopyCard8}>Copy</button>
-                            </ArticleBody>
-                        </Article>
 
-                        {/* Redes Sociales */}
-                        <Article>
-                            <ArticleTitle>Patreon IA - Title</ArticleTitle>
-                            <ArticleBody>
-                                <p ref={cardRef}>{mayusculas(nombre)} IA #{coleccion}</p>
-                                <button className='button-copy' onClick={handleCopyCard1}>Copy</button>
-                            </ArticleBody>
-                        </Article>
+                        {!monitas && (
+                            <>
+                                <Article>
+                                    <ArticleTitle>Winrar Anime</ArticleTitle>
+                                    <ArticleBody>
+                                        <p ref={card8Ref}>{`${textosConGuion(nombre)}_Anime_${coleccion}`}</p>
+                                        <button className='button-copy' onClick={handleCopyCard8}>Copy</button>
+                                    </ArticleBody>
+                                </Article>
+
+
+                                <Article>
+                                    <ArticleTitle>Patreon IA - Title</ArticleTitle>
+                                    <ArticleBody>
+                                        <p ref={cardRef}>{mayusculas(nombre)} IA #{coleccion}</p>
+                                        <button className='button-copy' onClick={handleCopyCard1}>Copy</button>
+                                    </ArticleBody>
+                                </Article>
+
+                                <Article>
+                                    <ArticleTitle>Patreon Preview - Title</ArticleTitle>
+                                    <ArticleBody>
+                                        <p ref={card2Ref}>{mayusculas(nombre)} IA #{coleccion} (Preview)</p>
+                                        <button className='button-copy' onClick={handleCopyCard2}>Copy</button>
+                                    </ArticleBody>
+                                </Article>
+                            </>
+
+                        )}
+
+
 
                         <Article>
-                            <ArticleTitle>Patreon Preview - Title</ArticleTitle>
+                            <ArticleTitle>{monitas ? 'Patreon Monitas Chinas' : 'Patreon Anime'}</ArticleTitle>
                             <ArticleBody>
-                                <p ref={card2Ref}>{mayusculas(nombre)} IA #{coleccion} (Preview)</p>
-                                <button className='button-copy' onClick={handleCopyCard2}>Copy</button>
-                            </ArticleBody>
-                        </Article>
-
-                        <Article>
-                            <ArticleTitle>Patreon Anime</ArticleTitle>
-                            <ArticleBody>
-                                <p ref={card3Ref}>{mayusculas(nombre)} Anime #{coleccion}</p>
+                                <p ref={card3Ref}>{monitas ? `${mayusculas(nombre)} #${coleccion}` : `${mayusculas(nombre)} Anime #${coleccion}`}</p>
                                 <button className='button-copy' onClick={handleCopyCard3}>Copy</button>
                             </ArticleBody>
                         </Article>
 
 
-                        <Article>
-                            <ArticleTitle>Facebook, Twitter, Instagram</ArticleTitle>
-                            <ArticleBody>
-                                <div ref={card4Ref}>
-                                    <strong>{mayusculas(nombre)}</strong><br />
-                                    <span>👉 https://monaschinas.link</span><br /><br />
-                                    <span>#{quitarEspacios(nombre).toLowerCase()} #{quitarEspacios(serie).toLowerCase()} #AIart #AIphoto #anime #AiAnime #AIanimegirl #DigitalArt #AIArtwork #aigirls #animeIA #waifu #cosplay</span>
-                                </div>
-                                <button className='button-copy' onClick={handleCopyCard4}>Copy</button>
-                            </ArticleBody>
+                        {monitas && (
 
-                        </Article>
+                            <Article>
+                                <ArticleTitle>Patreon Monitas Chinas Descripcion</ArticleTitle>
+                                <ArticleBody>
+                                    <p ref={cardTitleJaponesRef}>彼は実在の人物ではなく、法定年齢に達したアニメキャラクターです。</p>
+                                    <button className='button-copy' onClick={handleCopyCardTitleJaponesRef}>Copy</button>
+                                </ArticleBody>
+                            </Article>
+                        )}
 
-                        <Article>
-                            <ArticleTitle>Grupo Facebook</ArticleTitle>
-                            <ArticleBody>
-                                <p ref={card14Ref}>{mayusculas(nombre)} - {mayusculas(serie)}</p>
-                                <button className='button-copy' onClick={handleCopyCard14}>Copy</button>
-                            </ArticleBody>
 
-                        </Article>
+
+                        {!monitas && (
+
+                            <>
+
+                                <Article>
+                                    <ArticleTitle>Facebook, Twitter, Instagram</ArticleTitle>
+                                    <ArticleBody>
+                                        <div ref={card4Ref}>
+                                            <strong>{mayusculas(nombre)}</strong><br />
+                                            <span>👉 https://monaschinas.link</span><br /><br />
+                                            <span>#{quitarEspacios(nombre).toLowerCase()} #{quitarEspacios(serie).toLowerCase()} #AIart #AIphoto #anime #AiAnime #AIanimegirl #DigitalArt #AIArtwork #aigirls #animeIA #waifu #cosplay</span>
+                                        </div>
+                                        <button className='button-copy' onClick={handleCopyCard4}>Copy</button>
+                                    </ArticleBody>
+
+                                </Article>
+
+                                <Article>
+                                    <ArticleTitle>Grupo Facebook</ArticleTitle>
+                                    <ArticleBody>
+                                        <p ref={card14Ref}>{mayusculas(nombre)} - {mayusculas(serie)}</p>
+                                        <button className='button-copy' onClick={handleCopyCard14}>Copy</button>
+                                    </ArticleBody>
+
+                                </Article>
+
+                            </>
+                        )}
+
+
 
 
 
@@ -222,7 +277,7 @@ const Listado = ({ liga }) => {
 
 
                         <Article>
-                            <ArticleTitle>Pixiv Title</ArticleTitle>
+                            <ArticleTitle>{monitas ? 'Pixiv Title Monitas Chinas' : 'Pixiv Title'}</ArticleTitle>
                             <ArticleBody>
                                 <p ref={card5Ref}>{mayusculas(nombre)} #{coleccion}</p>
                                 <button className='button-copy' onClick={handleCopyCard5}>Copy</button>
@@ -230,7 +285,7 @@ const Listado = ({ liga }) => {
                         </Article>
 
 
-                        {!isChecked && (
+                        {!isChecked && !monitas && (
 
                             <Article>
                                 <ArticleTitle>Pixiv Body Sin Gumroad</ArticleTitle>
@@ -276,28 +331,20 @@ const Listado = ({ liga }) => {
                         )}
 
 
+                        {monitas && patreonMonitas && (
 
-                        <Article>
-                            <ArticleTitle>Gumroad Anime - Title</ArticleTitle>
-                            <ArticleBody>
-                                <div ref={card15Ref}>
-                                    <p>このサイトのすべての画像はAIによって生成されたイラストであり、写真ではありません。画像の中の人物は実在しません。画像の中のすべてのキャラクターは20歳以上の大人です。</p>
-                                    <br />
-                                    <p>本网站所有图片均为人工智能生成的插图，而非照片。图中人物非真实存在。图中所有角色均为20岁以上的成年人。</p>
-                                    <br />
-                                    <p>
-جميع الصور على هذا الموقع هي رسوم توضيحية تم إنشاؤها بواسطة الذكاء الاصطناعي، وليست صورًا فوتوغرافية. الشخص في الصورة ليس حقيقيًا. جميع الشخصيات في الصورة هم بالغون يتجاوزون عمرهم 20 عامًا.
+                            <Article>
+                                <ArticleTitle>Pixiv Descripcion Monitas Chinas</ArticleTitle>
+                                <ArticleBody>
+                                    <div ref={card15Ref}>
+                                        <p>👉 https://www.patreon.com/monitaschinas92</p>
+                                        <p>💗 <strong>Full set</strong>: {eliminarCadenaPatreon(patreonMonitas)}</p>
+                                    </div>
+                                    <button className='button-copy' onClick={handleCopyCard15}>Copy</button>
+                                </ArticleBody>
+                            </Article>
+                        )}
 
-</p><br />
-                                    <p>Все изображения на этом сайте - это иллюстрации, созданные искусственным интеллектом, а не фотографии. Человек на изображении не реален. Все персонажи на изображении - взрослые старше 20 лет.</p>
-                                    <br />
-                                    <p>All images on this site are AI-generated illustrations, not photographs. The person in the image is not real. All characters in the image are adults over 20 years old.</p>
-                                    <br />
-                                    <p>Todas las imágenes en este sitio son ilustraciones generadas por inteligencia artificial, no fotografías. La persona en la imagen no es real. Todos los personajes en la imagen son adultos mayores de 20 años.</p>
-                                </div>
-                                <button className='button-copy' onClick={handleCopyCard15}>Copy</button>
-                            </ArticleBody>
-                        </Article>
 
 
 

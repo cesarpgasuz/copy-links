@@ -32,3 +32,8 @@ export const textosConGuion = (texto) => {
     return resultado
 
 }
+
+export const eliminarCadenaPatreon = (texto) => {
+    const marcador = texto.indexOf('?');
+    return marcador !== -1 ? texto.substring(0, marcador) : texto
+}
