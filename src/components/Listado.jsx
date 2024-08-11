@@ -6,7 +6,7 @@ import ArticleBody from './ui/ArticleBody';
 import { quitarEspacios, mayusculas, textosConGuion, eliminarCadenaPatreon } from '../utilities';
 
 const Listado = ({ liga }) => {
-    const { nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas } = liga;
+    const { nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas, boothMonitas } = liga;
     const cardRef = useRef(null);
     const card2Ref = useRef(null);
     const card3Ref = useRef(null);
@@ -25,6 +25,7 @@ const Listado = ({ liga }) => {
     const nombreRef = useRef(null);
     const cardTitleJaponesRef = useRef(null);
     const serieRef = useRef(null)
+
 
     const handleCopyCard1 = () => {
         copyToClipboard(cardRef.current);
@@ -103,6 +104,9 @@ const Listado = ({ liga }) => {
         toast.success('Texto Copiado')
     };
 
+
+
+
     const copyToClipboard = (element) => {
         if (element) {
             const selection = window.getSelection();
@@ -127,9 +131,9 @@ const Listado = ({ liga }) => {
                     </div>
 
                     <div className='flex items-center gap-4'>
-                       <button onClick={handleCopySerieRef} className='bg-slate-100 px-2 border border-slate-200 rounded'>copiar</button><span className='text-slate-400' ref={serieRef}>{mayusculas(serie)}</span> <span className='text-slate-600 font-bold'>#{coleccion}</span>
+                        <button onClick={handleCopySerieRef} className='bg-slate-100 px-2 border border-slate-200 rounded'>copiar</button><span className='text-slate-400' ref={serieRef}>{mayusculas(serie)}</span> <span className='text-slate-600 font-bold'>#{coleccion}</span>
                     </div>
-                   
+
                     <section className='flex flex-col gap-4 pt-5 pb-10'>
 
                         {/* archivos winrar */}
@@ -337,13 +341,20 @@ const Listado = ({ liga }) => {
                                 <ArticleTitle>Pixiv Descripcion Monitas Chinas</ArticleTitle>
                                 <ArticleBody>
                                     <div ref={card15Ref}>
-                                        <p>👉 https://www.patreon.com/monitaschinas92</p>
-                                        <p>💗 <strong>Full set</strong>: {eliminarCadenaPatreon(patreonMonitas)}</p>
+                                        <span>【Patreon】 https://www.patreon.com/monitaschinas92</span><br />
+                                        <span>【Booth】https://monitaschinas.booth.pm/</span><br/><br/>
+
+                                        <span>【Patreon Full Set】 {eliminarCadenaPatreon(patreonMonitas)}</span><br/>
+                                        {boothMonitas && (
+                                            <span>【Booth Item】 {boothMonitas}</span>
+                                        )}
+
                                     </div>
                                     <button className='button-copy' onClick={handleCopyCard15}>Copy</button>
                                 </ArticleBody>
                             </Article>
                         )}
+
 
 
 

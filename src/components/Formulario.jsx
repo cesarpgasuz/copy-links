@@ -1,7 +1,7 @@
 import { useState } from "react"
 import toast, { Toaster } from 'react-hot-toast'
 
-const Formulario = ({setLiga }) => {
+const Formulario = ({ setLiga }) => {
 
     //nombre del personaje
     const [nombre, setNombre] = useState('')
@@ -18,6 +18,8 @@ const Formulario = ({setLiga }) => {
 
     const [patreonMonitas, setPatreonMonitas] = useState('')
 
+    const [boothMonitas, setBoothMonitas] = useState('')
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -30,7 +32,7 @@ const Formulario = ({setLiga }) => {
 
 
 
-        setLiga({ nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas })
+        setLiga({ nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas, boothMonitas })
 
     }
 
@@ -44,7 +46,7 @@ const Formulario = ({setLiga }) => {
         setMonitas(false)
     }
 
-    
+
     return (
         <div className="sm:w-2/5 sm:h-screen bg-sky-950">
             <Toaster />
@@ -81,7 +83,7 @@ const Formulario = ({setLiga }) => {
                     value={coleccion}
                     onChange={(e) => setColeccion(e.target.value)}
                 />
-                
+
                 <div className="flex items-center gap-3">
                     <label htmlFor="checkBox" className="font-bold text-slate-950 text-lg mb-1 block">Monitas Chinas</label>
                     <input
@@ -101,6 +103,17 @@ const Formulario = ({setLiga }) => {
                     className="w-full border border-slate-300 mb-3 py-1 px-2 block"
                     value={patreonMonitas}
                     onChange={(e) => setPatreonMonitas(e.target.value)}
+                />
+
+                <label htmlFor="monitasChinasBooth" className="font-bold text-slate-950 text-lg mb-1 block">Link Booth Monitas Chinas <strong className="text-pink-700">**</strong></label>
+                <input
+                    id="monitasChinasBooth"
+                    type="text"
+                    name=""
+                    placeholder="Ingresa el link de booth"
+                    className="w-full border border-slate-300 mb-3 py-1 px-2 block"
+                    value={boothMonitas}
+                    onChange={(e) => setBoothMonitas(e.target.value)}
                 />
 
 
