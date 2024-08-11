@@ -25,6 +25,9 @@ const Listado = ({ liga }) => {
     const nombreRef = useRef(null);
     const cardTitleJaponesRef = useRef(null);
     const serieRef = useRef(null)
+    const titleBooth = useRef(null)
+    const cardBooth = useRef(null)
+    const boothFigma = useRef(null)
 
 
     const handleCopyCard1 = () => {
@@ -104,8 +107,19 @@ const Listado = ({ liga }) => {
         toast.success('Texto Copiado')
     };
 
+    const handleCopyTitleBooth = () => {
+        copyToClipboard(titleBooth.current);
+        toast.success('Texto Copiado')
+    }
 
-
+    const handleCopyCardBooth = () => {
+        copyToClipboard(cardBooth.current);
+        toast.success('Texto Copiado')
+    }
+    const handleCopyBoothFigma = () => {
+        copyToClipboard(boothFigma.current);
+        toast.success('Texto Copiado')
+    }
 
     const copyToClipboard = (element) => {
         if (element) {
@@ -338,23 +352,73 @@ const Listado = ({ liga }) => {
                         {monitas && patreonMonitas && (
 
                             <Article>
-                                <ArticleTitle>Pixiv Descripcion Monitas Chinas</ArticleTitle>
+                                <ArticleTitle><strong className='bg-cyan-300 px-2'>Pixiv</strong> Descripcion Monitas Chinas</ArticleTitle>
                                 <ArticleBody>
                                     <div ref={card15Ref}>
                                         <span>【Patreon】 https://www.patreon.com/monitaschinas92</span><br />
-                                        <span>【Booth】https://monitaschinas.booth.pm/</span><br/><br/>
+                                        <span>【Booth】https://monitaschinas.booth.pm/</span><br /><br />
 
-                                        <span>【Patreon Full Set】 {eliminarCadenaPatreon(patreonMonitas)}</span><br/>
-                                        {boothMonitas && (
-                                            <span>【Booth Item】 {boothMonitas}</span>
-                                        )}
-
+                                        <span>【Patreon Full Set】 {eliminarCadenaPatreon(patreonMonitas)}</span>
                                     </div>
                                     <button className='button-copy' onClick={handleCopyCard15}>Copy</button>
                                 </ArticleBody>
                             </Article>
                         )}
 
+
+
+                        {monitas && boothMonitas && (
+
+
+                            <Article>
+                                <ArticleTitle><strong className='bg-green-400 px-2'>Figma</strong> Booth</ArticleTitle>
+                                <ArticleBody>
+                                    <div ref={boothFigma}>
+                                        <strong>{mayusculas(nombre)} - Collection #{coleccion}</strong><br />
+                                        <span>{mayusculas(serie)}</span>
+                                    </div>
+                                    <button className='button-copy' onClick={handleCopyBoothFigma}>Copy</button>
+                                </ArticleBody>
+
+                            </Article>
+
+                        )}
+
+
+                        {monitas && boothMonitas && (
+
+                            <Article>
+                                <ArticleTitle><strong className='bg-orange-400 px-2'>Booth</strong> Title Monitas Chinas</ArticleTitle>
+                                <ArticleBody>
+                                    <p ref={titleBooth}>{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}</p>
+                                    <button className='button-copy' onClick={handleCopyTitleBooth}>Copy</button>
+
+                                </ArticleBody>
+                            </Article>
+                        )}
+
+
+                        {monitas && boothMonitas && (
+
+                            <Article>
+                                <ArticleTitle><strong className='bg-orange-400 px-2'>Booth</strong> Descripcion Monitas Chinas</ArticleTitle>
+                                <ArticleBody>
+                                    <div ref={cardBooth}>
+
+                                        <span>{mayusculas(nombre)} - Collection #{coleccion}</span><br />
+                                        <span>Anime: {mayusculas(serie)}</span><br />
+                                        <span>Pack: {boothMonitas} Images</span><br />
+                                        <span>Type .rar</span><br />
+
+                                        <br />
+                                        <strong>Networks</strong><br />
+                                        <span>【Pixiv】 https://www.pixiv.net/en/users/104408818</span><br />
+                                        <span>【Patreon】 https://www.patreon.com/monitaschinas92</span><br />
+                                    </div>
+                                    <button className='button-copy' onClick={handleCopyCardBooth}>Copy</button>
+                                </ArticleBody>
+                            </Article>
+                        )}
 
 
 

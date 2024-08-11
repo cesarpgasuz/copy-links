@@ -105,12 +105,12 @@ const Formulario = ({ setLiga }) => {
                     onChange={(e) => setPatreonMonitas(e.target.value)}
                 />
 
-                <label htmlFor="monitasChinasBooth" className="font-bold text-slate-950 text-lg mb-1 block">Link Booth Monitas Chinas <strong className="text-pink-700">**</strong></label>
+                <label htmlFor="monitasChinasBooth" className="font-bold text-slate-950 text-lg mb-1 block">Imagenes Booth Monitas Chinas <strong className="text-pink-700">**</strong></label>
                 <input
                     id="monitasChinasBooth"
-                    type="text"
+                    type="number"
                     name=""
-                    placeholder="Ingresa el link de booth"
+                    placeholder="Ingresa el numero de imagenes de la coleccion"
                     className="w-full border border-slate-300 mb-3 py-1 px-2 block"
                     value={boothMonitas}
                     onChange={(e) => setBoothMonitas(e.target.value)}
