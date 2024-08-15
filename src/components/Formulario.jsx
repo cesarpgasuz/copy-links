@@ -18,7 +18,7 @@ const Formulario = ({ setLiga }) => {
 
     const [patreonMonitas, setPatreonMonitas] = useState('')
 
-    const [boothMonitas, setBoothMonitas] = useState('')
+   
 
 
     const handleSubmit = (e) => {
@@ -32,7 +32,7 @@ const Formulario = ({ setLiga }) => {
 
 
 
-        setLiga({ nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas, boothMonitas })
+        setLiga({ nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas})
 
     }
 
@@ -105,17 +105,7 @@ const Formulario = ({ setLiga }) => {
                     onChange={(e) => setPatreonMonitas(e.target.value)}
                 />
 
-                <label htmlFor="monitasChinasBooth" className="font-bold text-slate-950 text-lg mb-1 block">Imagenes Booth Monitas Chinas <strong className="text-pink-700">**</strong></label>
-                <input
-                    id="monitasChinasBooth"
-                    type="number"
-                    name=""
-                    placeholder="Ingresa el numero de imagenes de la coleccion"
-                    className="w-full border border-slate-300 mb-3 py-1 px-2 block"
-                    value={boothMonitas}
-                    onChange={(e) => setBoothMonitas(e.target.value)}
-                />
-
+            
 
 
                 <div className="flex items-center gap-3">
