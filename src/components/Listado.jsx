@@ -24,6 +24,7 @@ const Listado = ({ liga }) => {
     const card15Ref = useRef(null);
     const nombreRef = useRef(null);
     const cardTitleJaponesRef = useRef(null);
+    const cardTitleXJaponesRef = useRef(null);
     const serieRef = useRef(null)
 
 
@@ -96,6 +97,10 @@ const Listado = ({ liga }) => {
 
     const handleCopyCardTitleJaponesRef = () => {
         copyToClipboard(cardTitleJaponesRef.current);
+        toast.success('Texto Copiado')
+    };
+    const handleCopyCardTitleXJaponesRef = () => {
+        copyToClipboard(cardTitleXJaponesRef.current);
         toast.success('Texto Copiado')
     };
 
@@ -186,13 +191,28 @@ const Listado = ({ liga }) => {
 
                         {monitas && (
 
-                            <Article>
+                            <>
+                             <Article>
                                 <ArticleTitle>Patreon Monitas Chinas Descripcion</ArticleTitle>
                                 <ArticleBody>
                                     <p ref={cardTitleJaponesRef}>彼は実在の人物ではなく、法定年齢に達したアニメキャラクターです。</p>
                                     <button className='button-copy' onClick={handleCopyCardTitleJaponesRef}>Copy</button>
                                 </ArticleBody>
                             </Article>
+                             <Article>
+                                <ArticleTitle>Twitter Monitas Chinas Descripcion</ArticleTitle>
+                                <ArticleBody>
+                                    <div ref={cardTitleXJaponesRef}>
+                                        <span>{mayusculas(nombre)} - {mayusculas(serie)}</span>< br/>
+                                        <p>#AIグラビア #AIグラドル #AIイラスト #AIArtwork #AI美女 #AI美少女 #AI彼女 #SDXL</p>
+                                    </div>
+                                    
+                                    <button className='button-copy' onClick={handleCopyCardTitleXJaponesRef}>Copy</button>
+                                </ArticleBody>
+                            </Article>
+                            </>
+
+                           
                         )}
 
 
