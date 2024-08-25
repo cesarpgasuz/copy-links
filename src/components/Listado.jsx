@@ -199,17 +199,6 @@ const Listado = ({ liga }) => {
                                     <button className='button-copy' onClick={handleCopyCardTitleJaponesRef}>Copy</button>
                                 </ArticleBody>
                             </Article>
-                             <Article>
-                                <ArticleTitle>Twitter Monitas Chinas Descripcion</ArticleTitle>
-                                <ArticleBody>
-                                    <div ref={cardTitleXJaponesRef}>
-                                        <span>{mayusculas(nombre)} - {mayusculas(serie)}</span>< br/>
-                                        <p>#AIグラビア #AIグラドル #AIイラスト #AIArtwork #AI美女 #AI美少女 #AI彼女 #SDXL</p>
-                                    </div>
-                                    
-                                    <button className='button-copy' onClick={handleCopyCardTitleXJaponesRef}>Copy</button>
-                                </ArticleBody>
-                            </Article>
                             </>
 
                            
@@ -305,6 +294,19 @@ const Listado = ({ liga }) => {
                                 <button className='button-copy' onClick={handleCopyCard5}>Copy</button>
                             </ArticleBody>
                         </Article>
+
+
+                        <Article>
+                            <ArticleTitle>{monitas ? 'Twitter Monitas Chinas' : 'Twitter Monas Chinas'}</ArticleTitle>
+                            <ArticleBody>
+                                <div ref={cardTitleXJaponesRef}>
+                                    <span>{mayusculas(nombre)} - {mayusculas(serie)} </span>< br/>
+                                    <p>#{quitarEspacios(nombre).toLowerCase()} #AIグラビア #AIグラドル #AIイラスト #AIArtwork #AI美女 #AI美少女 #AI彼女 #SDXL #anime #AiAnime #AIanimegirl #DigitalArt #AIArtwork #aigirls #animeIA #waifu #cosplay</p>
+                                    </div>
+                                <button className='button-copy' onClick={handleCopyCardTitleXJaponesRef}>Copy</button>
+                            </ArticleBody>
+                        </Article>
+
 
 
                         {!isChecked && !monitas && (
