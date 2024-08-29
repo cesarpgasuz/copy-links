@@ -12,13 +12,13 @@ const Formulario = ({ setLiga }) => {
     //activar gumroad 
     const [isChecked, setIsChecked] = useState(false);
     //link gumroad 
-    const [gumroad, setGumroad] = useState('')
+    // const [gumroad, setGumroad] = useState('')
 
     const [monitas, setMonitas] = useState(false)
 
-    const [patreonMonitas, setPatreonMonitas] = useState('')
+    const [ia, setIa] = useState(false)
 
-   
+
 
 
     const handleSubmit = (e) => {
@@ -32,7 +32,7 @@ const Formulario = ({ setLiga }) => {
 
 
 
-        setLiga({ nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas})
+        setLiga({ nombre, serie, coleccion, isChecked, monitas, ia })
 
     }
 
@@ -40,7 +40,6 @@ const Formulario = ({ setLiga }) => {
         setNombre('')
         setSerie('')
         setColeccion('')
-        setGumroad('')
         setLiga({})
         setIsChecked(false)
         setMonitas(false)
@@ -85,6 +84,17 @@ const Formulario = ({ setLiga }) => {
                 />
 
                 <div className="flex items-center gap-3">
+                    <label htmlFor="checkBox" className="font-bold text-slate-950 text-lg mb-1 block">Monas China IA</label>
+                    <input
+                        id="checkBox"
+                        type="checkbox"
+                        checked={ia}
+                        onChange={() => setIa(!ia)}
+                    />
+                </div>
+                <br />
+
+                <div className="flex items-center gap-3">
                     <label htmlFor="checkBox" className="font-bold text-slate-950 text-lg mb-1 block">Monitas Chinas</label>
                     <input
                         id="checkBox"
@@ -94,20 +104,8 @@ const Formulario = ({ setLiga }) => {
                     />
                 </div>
 
-                <label htmlFor="monitasChinas" className="font-bold text-slate-950 text-lg mb-1 block">Link Patreon Monitas Chinas <strong className="text-pink-700">**</strong></label>
-                <input
-                    id="monitasChinas"
-                    type="text"
-                    name=""
-                    placeholder="Ingresa el link de patreon"
-                    className="w-full border border-slate-300 mb-3 py-1 px-2 block"
-                    value={patreonMonitas}
-                    onChange={(e) => setPatreonMonitas(e.target.value)}
-                />
-
-            
-
-
+                <br />
+                <br />
                 <div className="flex items-center gap-3">
                     <label htmlFor="checkBox" className="font-bold text-slate-950 text-lg mb-1 block">Producto de Gumroad</label>
                     <input
@@ -118,7 +116,8 @@ const Formulario = ({ setLiga }) => {
                     />
                 </div>
 
-                <label htmlFor="gumroad" className="font-bold text-slate-950 text-lg mb-1 block">Link Gumroad <strong className="text-pink-700">**</strong></label>
+
+                {/* <label htmlFor="gumroad" className="font-bold text-slate-950 text-lg mb-1 block">Link Gumroad <strong className="text-pink-700">**</strong></label>
                 <input
                     id="gumroad"
                     type="text"
@@ -127,7 +126,7 @@ const Formulario = ({ setLiga }) => {
                     className="w-full border border-slate-300 mb-3 py-1 px-2 block"
                     value={gumroad}
                     onChange={(e) => setGumroad(e.target.value)}
-                />
+                /> */}
 
                 <input
                     type="submit"
