@@ -230,18 +230,18 @@ const Listado = ({ liga }) => {
                                                 <li>Nueva Ilustración de {mayusculas(nombre)}</li>
                                                 <li>New Illustration of {mayusculas(nombre)}</li>
                                             </ul> 
-                                            <br /> 
+                                            
                                             <ul className='list-disc'>
                                                 <li>Dirígete al canal de Discord para obtener el archivo .rar completo.</li>
                                                 <li>Head over to the Discord channel to get the full .rar file.</li>
                                             </ul> 
-                                            <br />
+                                           
                                             <ul className='list-disc'>
                                                 <li>Diviertete</li>
                                                 <li>Have fun</li>
                                             </ul>  
                                             <br />
-                                            <strong>Pass: {contrasena}</strong>
+                                            <strong>Pass: &nbsp; {contrasena}</strong>
                                             
                                         </div>
                                         <button className='button-copy' onClick={handleCopyCardTitleJaponesRef}>Copy</button>
