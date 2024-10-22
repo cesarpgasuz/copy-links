@@ -18,6 +18,10 @@ const Formulario = ({ setLiga }) => {
 
     const [ia, setIa] = useState(false)
 
+    const [contrasena, setContrasena] = useState('')
+
+    const [enlacePatreon, setEnlacePatreon] = useState('')
+
 
 
 
@@ -32,7 +36,7 @@ const Formulario = ({ setLiga }) => {
 
 
 
-        setLiga({ nombre, serie, coleccion, isChecked, monitas, ia })
+        setLiga({ nombre, serie, coleccion, isChecked, monitas, ia, contrasena, enlacePatreon })
 
     }
 
@@ -43,6 +47,8 @@ const Formulario = ({ setLiga }) => {
         setLiga({})
         setIsChecked(false)
         setMonitas(false)
+        setContrasena('')
+        setEnlacePatreon('')
     }
 
 
@@ -81,6 +87,27 @@ const Formulario = ({ setLiga }) => {
                     className="w-full border border-slate-300 mb-3 py-1 px-2 block"
                     value={coleccion}
                     onChange={(e) => setColeccion(e.target.value)}
+                />
+                <label htmlFor="contrasena" className="font-bold text-slate-950 text-lg mb-1 block">Contraseña Winrar</label>
+                <input
+                    id="contrasena"
+                    type="text"
+                    name=""
+                    placeholder="Ingresa la constraseña del .rar"
+                    className="w-full border border-slate-300 mb-3 py-1 px-2 block"
+                    value={contrasena}
+                    onChange={(e) => setContrasena(e.target.value)}
+                />
+
+                <label htmlFor="enlaceColeccion" className="font-bold text-slate-950 text-lg mb-1 block">Enlace Coleccion Patreon</label>
+                <input
+                    id="enlaceColeccion"
+                    type="text"
+                    name=""
+                    placeholder="Ingresa el enlace de la coleccion"
+                    className="w-full border border-slate-300 mb-3 py-1 px-2 block"
+                    value={enlacePatreon}
+                    onChange={(e) => setEnlacePatreon(e.target.value)}
                 />
 
                 <div className="flex items-center gap-3">

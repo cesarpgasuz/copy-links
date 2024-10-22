@@ -3,10 +3,11 @@ import toast, { Toaster } from 'react-hot-toast'
 import Article from './ui/Article';
 import ArticleTitle from './ui/ArticleTitle';
 import ArticleBody from './ui/ArticleBody';
+import LinkError from './ui/LinkError';
 import { quitarEspacios, mayusculas, textosConGuion, eliminarCadenaPatreon } from '../utilities';
 
 const Listado = ({ liga }) => {
-    const { nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas, boothMonitas, ia } = liga;
+    const { nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas, boothMonitas, ia, contrasena, enlacePatreon } = liga;
     const cardRef = useRef(null);
     const card2Ref = useRef(null);
     const card3Ref = useRef(null);
@@ -26,6 +27,8 @@ const Listado = ({ liga }) => {
     const cardTitleJaponesRef = useRef(null);
     const cardTitleXJaponesRef = useRef(null);
     const serieRef = useRef(null)
+    const cardTextDiscord = useRef(null)
+    const contrasenaRef = useRef(null)
 
 
     const handleCopyCard1 = () => {
@@ -109,6 +112,17 @@ const Listado = ({ liga }) => {
         toast.success('Texto Copiado')
     };
 
+    const handleCopyCardTextDiscord = () => {
+        copyToClipboard(cardTextDiscord.current);
+        toast.success('Parrafo Copiado')
+    }
+
+    const handleCopyContrasenaRef = () => {
+        copyToClipboard(contrasenaRef.current);
+        toast.success('Contraseña copiada')
+    }
+
+
 
     const copyToClipboard = (element) => {
         if (element) {
@@ -129,12 +143,18 @@ const Listado = ({ liga }) => {
                 <main>
                     <Toaster />
                     <div className='flex items-center gap-4'>
+                        
                         <h2 className='font-bold text-2xl text-slate-950' ref={nombreRef}>{mayusculas(nombre)}</h2>
                         <button onClick={handleCopyNombreRef} className='bg-slate-100 px-2 border border-slate-200 rounded'>copiar</button>
                     </div>
-
                     <div className='flex items-center gap-4'>
-                        <button onClick={handleCopySerieRef} className='bg-slate-100 px-2 border border-slate-200 rounded'>copiar</button><span className='text-slate-400' ref={serieRef}>{mayusculas(serie)}</span> <span className='text-slate-600 font-bold'>#{coleccion}</span>
+                        <h3 className='text-slate-600 font-bold'>Coleccion #{coleccion}</h3>
+                    </div>
+                    <div className='flex items-center gap-4'>
+                        <span className='text-slate-400' ref={serieRef}>{mayusculas(serie)}</span> <button onClick={handleCopySerieRef} className='bg-slate-100 px-2 border border-slate-200 rounded'>copiar</button>
+                    </div>
+                    <div className='flex items-center gap-4'>
+                        <p><strong>Contreña:</strong> <span className='text-slate-600' ref={contrasenaRef}>{contrasena.trim()}</span></p><button onClick={handleCopyContrasenaRef} className='bg-slate-100 px-2 border border-slate-200 rounded'>copiar</button>
                     </div>
 
                     <section className='flex flex-col gap-4 pt-5 pb-10'>
@@ -203,10 +223,47 @@ const Listado = ({ liga }) => {
 
                             <>
                                 <Article>
-                                    <ArticleTitle>Patreon Monitas Chinas Descripcion</ArticleTitle>
+                                    <ArticleTitle><strong className='bg-black text-white px-1'>Patreon</strong> Monitas Chinas Descripcion</ArticleTitle>
                                     <ArticleBody>
-                                        <p ref={cardTitleJaponesRef}>彼は実在の人物ではなく、法定年齢に達したアニメキャラクターです。</p>
+                                        <div ref={cardTitleJaponesRef}>
+                                            <ul className='list-disc'>
+                                                <li>Nueva Ilustración de {mayusculas(nombre)}</li>
+                                                <li>New Illustration of {mayusculas(nombre)}</li>
+                                            </ul> 
+                                            <br /> 
+                                            <ul className='list-disc'>
+                                                <li>Dirígete al canal de Discord para obtener el archivo .rar completo.</li>
+                                                <li>Head over to the Discord channel to get the full .rar file.</li>
+                                            </ul> 
+                                            <br />
+                                            <ul className='list-disc'>
+                                                <li>Diviertete</li>
+                                                <li>Have fun</li>
+                                            </ul>  
+                                            <br />
+                                            <strong>Pass: {contrasena}</strong>
+                                            
+                                        </div>
                                         <button className='button-copy' onClick={handleCopyCardTitleJaponesRef}>Copy</button>
+                                    </ArticleBody>
+                                </Article>
+
+                                <Article>
+                                    <ArticleTitle><strong className='bg-violet-500 text-white px-1'>Discord</strong> Descripcion</ArticleTitle>
+                                    <ArticleBody>
+                                        <div ref={cardTextDiscord}>
+                                            <h1>{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}</h1>
+                                            <br /> 
+                                            <ul className='list-disc'>
+                                                <li>Utiliza el siguiente enlace para ir a Patreon y obtener la contraseña del archivo.</li>
+                                                <li>Please use the link below to go to Patreon and get the password for the file.</li>
+                                            </ul> 
+                                            <br />
+                                            <h5><strong>Link: </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
+                    
+                                            
+                                        </div>
+                                        <button className='button-copy' onClick={handleCopyCardTextDiscord}>Copy</button>
                                     </ArticleBody>
                                 </Article>
                             </>
