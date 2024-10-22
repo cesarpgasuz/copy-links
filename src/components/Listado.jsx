@@ -256,8 +256,8 @@ const Listado = ({ liga }) => {
                                             <h1>{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}</h1>
                                             <br /> 
                                             <ul className='list-disc'>
-                                                <li>Utiliza el siguiente enlace para ir a Patreon y obtener la contraseña del archivo.</li>
-                                                <li>Please use the link below to go to Patreon and get the password for the file.</li>
+                                                <li>🟡 Utiliza el siguiente enlace para ir a Patreon y obtener la contraseña del archivo.</li>
+                                                <li>🟡 Please use the link below to go to Patreon and get the password for the file.</li>
                                             </ul> 
                                             <br />
                                             <h5><strong>Link: </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
