@@ -1,5 +1,6 @@
 import { useState } from "react"
 import toast, { Toaster } from 'react-hot-toast'
+import styles from '../styles/styles.module.css'
 
 const Formulario = ({ setLiga }) => {
 
@@ -93,7 +94,7 @@ const Formulario = ({ setLiga }) => {
                     id="contrasena"
                     type="text"
                     name=""
-                    placeholder="Ingresa la constraseña del .rar"
+                    placeholder="Ingresa la contraseña del .rar"
                     className="w-full border border-slate-300 mb-3 py-1 px-2 block"
                     value={contrasena}
                     onChange={(e) => setContrasena(e.target.value)}
@@ -110,39 +111,42 @@ const Formulario = ({ setLiga }) => {
                     onChange={(e) => setEnlacePatreon(e.target.value)}
                 />
 
-                <div className="flex items-center gap-3">
-                    <label htmlFor="checkBox" className="font-bold text-slate-950 text-lg mb-1 block">Monas China IA</label>
-                    <input
-                        id="checkBox"
-                        type="checkbox"
-                        checked={ia}
-                        onChange={() => setIa(!ia)}
-                    />
-                </div>
-                <br />
 
-                <div className="flex items-center gap-3">
-                    <label htmlFor="checkBox" className="font-bold text-slate-950 text-lg mb-1 block">Monitas Chinas</label>
-                    <input
-                        id="checkBox"
-                        type="checkbox"
-                        checked={monitas}
-                        onChange={() => setMonitas(!monitas)}
-                    />
-                </div>
+                <div className={`flex flex-col gap-3 py-4 ${styles.opciones}`}>
+                    <div className={`flex items-center gap-3 ${ia ? styles.active : ''}`}>
+                        <label htmlFor="monasia" className="font-bold text-slate-950 text-lg mb-1 block w-full h-full">Monas China IA</label>
+                        <input
+                            id="monasia"
+                            type="checkbox"
+                            checked={ia}
+                            onChange={() => setIa(!ia)}
+                            className="hidden"
+                        />
+                    </div>
 
-                <br />
-                <br />
-                <div className="flex items-center gap-3">
-                    <label htmlFor="checkBox" className="font-bold text-slate-950 text-lg mb-1 block">Producto de Gumroad</label>
-                    <input
-                        id="checkBox"
-                        type="checkbox"
-                        checked={isChecked}
-                        onChange={() => setIsChecked(!isChecked)}
-                    />
-                </div>
+                    <div className={`flex items-center gap-3 ${monitas ? styles.active : ''}`}>
+                        <label htmlFor="monitasia" className="font-bold text-slate-950 text-lg mb-1 block w-full h-full">Monitas Chinas</label>
+                        <input
+                            id="monitasia"
+                            type="checkbox"
+                            checked={monitas}
+                            onChange={() => setMonitas(!monitas)}
+                            className="hidden"
+                        />
+                    </div>
 
+                    <div className={`flex items-center gap-3 ${isChecked ? styles.active : ''}`}>
+                        <label htmlFor="gumroad" className="font-bold text-slate-950 text-lg mb-1 block w-full h-full">Producto de Gumroad</label>
+                        <input
+                            id="gumroad"
+                            type="checkbox"
+                            checked={isChecked}
+                            onChange={() => setIsChecked(!isChecked)}
+                            className="hidden"
+                        />
+                    </div>
+
+                </div>
 
                 {/* <label htmlFor="gumroad" className="font-bold text-slate-950 text-lg mb-1 block">Link Gumroad <strong className="text-pink-700">**</strong></label>
                 <input

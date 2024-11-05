@@ -143,7 +143,7 @@ const Listado = ({ liga }) => {
                 <main>
                     <Toaster />
                     <div className='flex items-center gap-4'>
-                        
+
                         <h2 className='font-bold text-2xl text-slate-950' ref={nombreRef}>{mayusculas(nombre)}</h2>
                         <button onClick={handleCopyNombreRef} className='bg-slate-100 px-2 border border-slate-200 rounded'>copiar</button>
                     </div>
@@ -154,7 +154,7 @@ const Listado = ({ liga }) => {
                         <span className='text-slate-400' ref={serieRef}>{mayusculas(serie)}</span> <button onClick={handleCopySerieRef} className='bg-slate-100 px-2 border border-slate-200 rounded'>copiar</button>
                     </div>
                     <div className='flex items-center gap-4'>
-                        <p><strong>Contreña:</strong> <span className='text-slate-600' ref={contrasenaRef}>{contrasena.trim()}</span></p><button onClick={handleCopyContrasenaRef} className='bg-slate-100 px-2 border border-slate-200 rounded'>copiar</button>
+                        <p><strong>Contraseña:</strong> {contrasena ? (<><span className='text-slate-600' ref={contrasenaRef}>{contrasena.trim()}</span> <button onClick={handleCopyContrasenaRef} className='bg-slate-100 px-2 border border-slate-200 rounded'>copiar</button> </>) : ('No hay contraseña para el archivo')}</p>
                     </div>
 
                     <section className='flex flex-col gap-4 pt-5 pb-10'>
@@ -178,7 +178,7 @@ const Listado = ({ liga }) => {
                                 <Article>
                                     <ArticleTitle>Winrar Anime</ArticleTitle>
                                     <ArticleBody>
-                                        <p ref={card8Ref}>{`${textosConGuion(nombre)}_Anime_${coleccion}`}</p>
+                                        <p ref={card8Ref}>{`${textosConGuion(nombre)}_${coleccion}`}</p>
                                         <button className='button-copy' onClick={handleCopyCard8}>Copy</button>
                                     </ArticleBody>
                                 </Article>
@@ -213,7 +213,7 @@ const Listado = ({ liga }) => {
                         <Article>
                             <ArticleTitle>{monitas ? 'Patreon Monitas Chinas' : 'Patreon Anime'}</ArticleTitle>
                             <ArticleBody>
-                                <p ref={card3Ref}>{monitas ? `${mayusculas(nombre)} #${coleccion}` : `${mayusculas(nombre)} Anime #${coleccion}`}</p>
+                                <p ref={card3Ref}>{monitas ? `${mayusculas(nombre)} #${coleccion}` : `${mayusculas(nombre)} #${coleccion}`}</p>
                                 <button className='button-copy' onClick={handleCopyCard3}>Copy</button>
                             </ArticleBody>
                         </Article>
@@ -229,40 +229,44 @@ const Listado = ({ liga }) => {
                                             <ul className='list-disc'>
                                                 <li>Nueva Ilustración de {mayusculas(nombre)}</li>
                                                 <li>New Illustration of {mayusculas(nombre)}</li>
-                                            </ul> 
+                                            </ul>
                                             <br />
                                             <ul className='list-disc'>
                                                 <li>Dirígete al canal de <strong>Discord</strong> para obtener el archivo .rar completo.</li>
-                                                <li>Head over to the Discord channel to get the full .rar file.</li>
-                                            </ul> 
+                                                <li>Head over to the <strong>Discord</strong> channel to get the full .rar file.</li>
+                                                <li>完全な .rar ファイルを入手するには、<strong>Discord</strong> チャンネルにアクセスしてください。</li>
+                                                <li>https://www.patreon.com/c/monitaschinas92/membership</li>
+                                            </ul>
                                             <br />
                                             <ul className='list-disc'>
                                                 <li>Diviertete 🥳</li>
                                                 <li>Have fun 🥳</li>
-                                            </ul>  
+                                                <li>楽しんでください🥳</li>
+                                            </ul>
                                             <br />
                                             <strong>Pass: &nbsp; {contrasena}</strong>
                                             <br />
-                                            
+
                                         </div>
                                         <button className='button-copy' onClick={handleCopyCardTitleJaponesRef}>Copy</button>
                                     </ArticleBody>
                                 </Article>
 
                                 <Article>
-                                    <ArticleTitle><strong className='bg-violet-500 text-white px-1'>Discord</strong> Descripcion</ArticleTitle>
+                                    <ArticleTitle><strong className='bg-violet-500 text-white px-1'>Discord</strong>Monitas Chinas Descripcion</ArticleTitle>
                                     <ArticleBody>
                                         <div ref={cardTextDiscord}>
-                                            <h1>{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}</h1>
-                                            <br /> 
+                                            <h1>*{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}*</h1>
+                                            <br />
                                             <ul className='list-disc'>
                                                 <li>🟡 Utiliza el siguiente enlace para ir a Patreon y obtener la contraseña del archivo.</li>
                                                 <li>🟡 Please use the link below to go to Patreon and get the password for the file.</li>
-                                            </ul> 
+                                                <li>🟡 以下のリンクを使用して Patreon にアクセスし、ファイルのパスワードを取得します。</li>
+                                            </ul>
                                             <br />
                                             <h5><strong>Link: </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
-                    
-                                            
+
+
                                         </div>
                                         <button className='button-copy' onClick={handleCopyCardTextDiscord}>Copy</button>
                                     </ArticleBody>
@@ -271,6 +275,105 @@ const Listado = ({ liga }) => {
 
 
                         )}
+
+                        {!monitas && contrasena &&
+
+                            <>
+                                <Article>
+                                    <ArticleTitle><strong className='bg-black text-white px-1'>Patreon</strong> Monas Chinas Anime Descripcion</ArticleTitle>
+                                    <ArticleBody>
+                                        <div ref={cardTitleJaponesRef}>
+                                            <ul className='list-disc'>
+                                                <li>Nueva Ilustración de {mayusculas(nombre)}</li>
+                                                <li>New Illustration of {mayusculas(nombre)}</li>
+                                            </ul>
+                                            <br />
+                                            <ul className='list-disc'>
+                                                <li>Dirígete al canal de <strong>Discord</strong> para obtener el archivo .rar completo.</li>
+                                                <li>Head over to the <strong>Discord</strong> channel to get the full .rar file.</li>
+                                                <li>完全な .rar ファイルを入手するには、<strong>Discord</strong> チャンネルにアクセスしてください。</li>
+                                                <li>https://www.patreon.com/c/monaschinasia/membership</li>
+                                            </ul>
+                                            <br />
+                                            <ul className='list-disc'>
+                                                <li>Diviertete 🥳</li>
+                                                <li>Have fun 🥳</li>
+                                                <li>楽しんでください🥳</li>
+                                            </ul>
+                                            <br />
+                                            <strong>Pass: &nbsp; {contrasena}</strong>
+                                            <br />
+
+                                        </div>
+                                        <button className='button-copy' onClick={handleCopyCardTitleJaponesRef}>Copy</button>
+                                    </ArticleBody>
+                                </Article>
+
+                                <Article>
+                                    <ArticleTitle><strong className='bg-violet-500 text-white px-1'>Discord</strong>Monas Chinas Anime Descripcion</ArticleTitle>
+                                    <ArticleBody>
+                                        <div ref={cardTextDiscord}>
+                                            <h1>*{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}*</h1>
+                                            <br />
+                                            <ul className='list-disc'>
+                                                <li>🟡 Utiliza el siguiente enlace para ir a Patreon y obtener la contraseña del archivo.</li>
+                                                <li>🟡 Please use the link below to go to Patreon and get the password for the file.</li>
+                                                <li>🟡 以下のリンクを使用して Patreon にアクセスし、ファイルのパスワードを取得します。</li>
+                                            </ul>
+                                            <br />
+                                            <h5><strong>Link: </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
+
+
+                                        </div>
+                                        <button className='button-copy' onClick={handleCopyCardTextDiscord}>Copy</button>
+                                    </ArticleBody>
+                                </Article>
+                            </>
+
+                        }
+
+                        {!monitas && !contrasena && (
+
+                            <>
+                                <Article>
+                                    <ArticleTitle><strong className='bg-black text-white px-1'>Patreon</strong> Monas Chinas Anime Descripcion</ArticleTitle>
+                                    <ArticleBody>
+                                        <div ref={cardTitleJaponesRef}>
+                                            <ul className='list-disc'>
+                                                <li>Nueva Ilustración de {mayusculas(nombre)}</li>
+                                                <li>New Illustration of {mayusculas(nombre)}</li>
+                                            </ul>
+                                            <br />
+                                            <ul className='list-disc'>
+                                                <li>すべての登場人物は法定年齢に達した成人です。</li>
+                                            </ul>
+                                            <br />
+                                            <ul className='list-disc'>
+                                                <li>Diviertete 🥳</li>
+                                                <li>Have fun 🥳</li>
+                                                <li>楽しんでください🥳</li>
+                                            </ul>
+
+                                        </div>
+                                        <button className='button-copy' onClick={handleCopyCardTitleJaponesRef}>Copy</button>
+                                    </ArticleBody>
+                                </Article>
+
+
+
+
+                            </>
+
+                        )}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -356,7 +459,7 @@ const Listado = ({ liga }) => {
 
 
                         <Article>
-                            <ArticleTitle><strong className='bg-cyan-300 px-2'>Pixiv</strong> Title {monitas ? 'Monitas Chinas' : 'Monas Chinas'}</ArticleTitle>
+                            <ArticleTitle><strong className='bg-cyan-300 px-2'>Pixiv</strong> Title {monitas ? 'Monitas Chinas' : 'Monas Chinas Anime'}</ArticleTitle>
                             <ArticleBody>
                                 <p ref={card5Ref}>{mayusculas(nombre)} #{coleccion}</p>
                                 <button className='button-copy' onClick={handleCopyCard5}>Copy</button>
@@ -382,7 +485,7 @@ const Listado = ({ liga }) => {
                         {!monitas && (
 
                             <Article>
-                                <ArticleTitle><strong className='bg-cyan-300 px-2'>Pixiv</strong> Descripcion Monas Chinas</ArticleTitle>
+                                <ArticleTitle><strong className='bg-cyan-300 px-2'>Pixiv</strong> Descripcion Monas Chinas Anime</ArticleTitle>
                                 <ArticleBody>
                                     <div ref={card13Ref}>
                                         <strong>Social networks</strong><br />
@@ -397,7 +500,7 @@ const Listado = ({ liga }) => {
 
 
                         <Article>
-                            <ArticleTitle>{monitas ? 'Twitter Monitas Chinas' : 'Twitter Monas Chinas'}</ArticleTitle>
+                            <ArticleTitle>{monitas ? 'Twitter Monitas Chinas' : 'Twitter Monas Chinas Anime'}</ArticleTitle>
                             <ArticleBody>
                                 <div ref={cardTitleXJaponesRef}>
                                     <span>{mayusculas(nombre)} - {mayusculas(serie)} </span>< br />
