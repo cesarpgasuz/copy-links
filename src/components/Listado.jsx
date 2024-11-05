@@ -256,7 +256,7 @@ const Listado = ({ liga }) => {
                                     <ArticleTitle><strong className='bg-violet-500 text-white px-1'>Discord</strong>Monitas Chinas Descripcion</ArticleTitle>
                                     <ArticleBody>
                                         <div ref={cardTextDiscord}>
-                                            <h1>*{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}*</h1>
+                                            <h1>**{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}**</h1>
                                             <br />
                                             <ul className='list-disc'>
                                                 <li>🟡 Utiliza el siguiente enlace para ir a Patreon y obtener la contraseña del archivo.</li>
@@ -313,7 +313,7 @@ const Listado = ({ liga }) => {
                                     <ArticleTitle><strong className='bg-violet-500 text-white px-1'>Discord</strong>Monas Chinas Anime Descripcion</ArticleTitle>
                                     <ArticleBody>
                                         <div ref={cardTextDiscord}>
-                                            <h1>*{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}*</h1>
+                                            <h1>**{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}**</h1>
                                             <br />
                                             <ul className='list-disc'>
                                                 <li>🟡 Utiliza el siguiente enlace para ir a Patreon y obtener la contraseña del archivo.</li>
