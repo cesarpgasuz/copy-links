@@ -231,6 +231,7 @@ const Listado = ({ liga }) => {
                                                 <li>New Illustration of {mayusculas(nombre)}</li>
                                             </ul>
                                             <br />
+
                                             <ul className='list-disc'>
                                                 <li>Dirígete al canal de <strong>Discord</strong> para obtener el archivo .rar completo.</li>
                                                 <li>Head over to the <strong>Discord</strong> channel to get the full .rar file.</li>
@@ -288,12 +289,23 @@ const Listado = ({ liga }) => {
                                                 <li>New Illustration of {mayusculas(nombre)}</li>
                                             </ul>
                                             <br />
-                                            <ul className='list-disc'>
-                                                <li>Dirígete al canal de <strong>Discord</strong> para obtener el archivo .rar completo.</li>
-                                                <li>Head over to the <strong>Discord</strong> channel to get the full .rar file.</li>
-                                                <li>完全な .rar ファイルを入手するには、<strong>Discord</strong> チャンネルにアクセスしてください。</li>
-                                                <li>https://www.patreon.com/c/monaschinasia/membership</li>
-                                            </ul>
+                                            {enlacePatreon ? (
+                                                <>
+                                                    <ul className='list-disc'>
+                                                        <li>La colección completa está en el siguiente enlace.</li>
+                                                        <li>The complete collection is in the following link.</li>
+                                                        <li>完全なコレクションは次のリンクにあります。</li>
+                                                    </ul>
+                                                    <br />
+                                                    <h3>{enlacePatreon}</h3>
+                                                </>) : (<ul className='list-disc'>
+                                                    <li>Dirígete al canal de <strong>Discord</strong> para obtener el archivo .rar completo.</li>
+                                                    <li>Head over to the <strong>Discord</strong> channel to get the full .rar file.</li>
+                                                    <li>完全な .rar ファイルを入手するには、<strong>Discord</strong> チャンネルにアクセスしてください。</li>
+                                                    <li>https://www.patreon.com/c/monitaschinas92/membership</li>
+                                                </ul>)}
+
+
                                             <br />
                                             <ul className='list-disc'>
                                                 <li>Diviertete 🥳</li>
@@ -301,7 +313,8 @@ const Listado = ({ liga }) => {
                                                 <li>楽しんでください🥳</li>
                                             </ul>
                                             <br />
-                                            <strong>Pass: &nbsp; {contrasena}</strong>
+                                            <h4></h4>
+                                            <strong>Pass: 👉 &nbsp; {contrasena}</strong>
                                             <br />
 
                                         </div>

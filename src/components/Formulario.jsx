@@ -114,7 +114,7 @@ const Formulario = ({ setLiga }) => {
 
                 <div className={`flex flex-col gap-3 py-4 ${styles.opciones}`}>
                     <div className={`flex items-center gap-3 ${ia ? styles.active : ''}`}>
-                        <label htmlFor="monasia" className="font-bold text-slate-950 text-lg mb-1 block w-full h-full">Monas China IA</label>
+                        <label htmlFor="monasia" className="font-bold text-slate-950 text-lg mb-1 block w-full h-full hover:cursor-pointer">Monas China IA</label>
                         <input
                             id="monasia"
                             type="checkbox"
@@ -125,7 +125,7 @@ const Formulario = ({ setLiga }) => {
                     </div>
 
                     <div className={`flex items-center gap-3 ${monitas ? styles.active : ''}`}>
-                        <label htmlFor="monitasia" className="font-bold text-slate-950 text-lg mb-1 block w-full h-full">Monitas Chinas</label>
+                        <label htmlFor="monitasia" className="font-bold text-slate-950 text-lg mb-1 block w-full h-full hover:cursor-pointer">Monitas Chinas</label>
                         <input
                             id="monitasia"
                             type="checkbox"
@@ -136,7 +136,7 @@ const Formulario = ({ setLiga }) => {
                     </div>
 
                     <div className={`flex items-center gap-3 ${isChecked ? styles.active : ''}`}>
-                        <label htmlFor="gumroad" className="font-bold text-slate-950 text-lg mb-1 block w-full h-full">Producto de Gumroad</label>
+                        <label htmlFor="gumroad" className="font-bold text-slate-950 text-lg mb-1 block w-full h-full hover:cursor-pointer">Producto de Gumroad</label>
                         <input
                             id="gumroad"
                             type="checkbox"
