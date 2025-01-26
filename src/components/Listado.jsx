@@ -7,7 +7,7 @@ import LinkError from './ui/LinkError';
 import { quitarEspacios, mayusculas, textosConGuion, eliminarCadenaPatreon } from '../utilities';
 
 const Listado = ({ liga }) => {
-    const { nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas, boothMonitas, ia, contrasena, enlacePatreon } = liga;
+    const { nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas, boothMonitas, ia, contrasena, enlacePatreon, enlaceMega } = liga;
     const cardRef = useRef(null);
     const card2Ref = useRef(null);
     const card3Ref = useRef(null);
@@ -289,7 +289,19 @@ const Listado = ({ liga }) => {
                                                 <li>New Illustration of {mayusculas(nombre)}</li>
                                             </ul>
                                             <br />
-                                            {enlacePatreon ? (
+                                            {enlaceMega && enlacePatreon ? (
+                                                <>
+
+
+                                                    <ul className='list-disc'>
+                                                        <li>Dirígete al canal de <strong>Discord</strong> para obtener el archivo .rar completo.</li>
+                                                        <li>Head over to the <strong>Discord</strong> channel to get the full .rar file.</li>
+                                                        <li>完全な .rar ファイルを入手するには、<strong>Discord</strong> チャンネルにアクセスしてください。</li>
+                                                        <li>https://www.patreon.com/c/tea_time_by_temari/membership</li>
+                                                    </ul>
+                                                </>
+
+                                            ) : enlaceMega ? (
                                                 <>
                                                     <ul className='list-disc'>
                                                         <li>La colección completa está en el siguiente enlace.</li>
@@ -297,13 +309,11 @@ const Listado = ({ liga }) => {
                                                         <li>完全なコレクションは次のリンクにあります。</li>
                                                     </ul>
                                                     <br />
-                                                    <h3>{enlacePatreon}</h3>
-                                                </>) : (<ul className='list-disc'>
-                                                    <li>Dirígete al canal de <strong>Discord</strong> para obtener el archivo .rar completo.</li>
-                                                    <li>Head over to the <strong>Discord</strong> channel to get the full .rar file.</li>
-                                                    <li>完全な .rar ファイルを入手するには、<strong>Discord</strong> チャンネルにアクセスしてください。</li>
-                                                    <li>https://www.patreon.com/c/monitaschinas92/membership</li>
-                                                </ul>)}
+                                                    <h3>{enlaceMega}</h3>
+                                                </>
+
+
+                                            ) : ('')}
 
 
                                             <br />
@@ -323,10 +333,10 @@ const Listado = ({ liga }) => {
                                 </Article>
 
                                 <Article>
-                                    <ArticleTitle><strong className='bg-violet-500 text-white px-1'>Discord</strong>Monas Chinas Anime Descripcion</ArticleTitle>
+                                    <ArticleTitle><strong className='bg-violet-500 text-white px-1'>Discord</strong>Temari</ArticleTitle>
                                     <ArticleBody>
                                         <div ref={cardTextDiscord}>
-                                            <h1>**{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}**</h1>
+                                            <h1>**{mayusculas(nombre)} #{coleccion}</h1>
                                             <br />
                                             <ul className='list-disc'>
                                                 <li>🟡 Utiliza el siguiente enlace para ir a Patreon y obtener la contraseña del archivo.</li>
@@ -334,8 +344,15 @@ const Listado = ({ liga }) => {
                                                 <li>🟡 以下のリンクを使用して Patreon にアクセスし、ファイルのパスワードを取得します。</li>
                                             </ul>
                                             <br />
-                                            <h5><strong>Link: </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
-
+                                            <h5><strong>Link:  </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
+                                            <br />
+                                            <ul>
+                                                <li>🟡 Descarga el Archivo utilizando este enlace.</li>
+                                                <li>🟡 Download the file using this link</li>
+                                                <li>🟡 このリンクを使用してファイルをダウンロードしてください。</li>
+                                            </ul>
+                                            <br />
+                                            <h5><strong>Link:  </strong>{enlaceMega ? enlaceMega : <LinkError />}</h5>
 
                                         </div>
                                         <button className='button-copy' onClick={handleCopyCardTextDiscord}>Copy</button>
@@ -344,6 +361,10 @@ const Listado = ({ liga }) => {
                             </>
 
                         }
+
+
+                        { }
+
 
                         {!monitas && !contrasena && (
 

@@ -23,6 +23,8 @@ const Formulario = ({ setLiga }) => {
 
     const [enlacePatreon, setEnlacePatreon] = useState('')
 
+    const [enlaceMega, setEnlaceMega] = useState('')
+
 
 
 
@@ -37,7 +39,7 @@ const Formulario = ({ setLiga }) => {
 
 
 
-        setLiga({ nombre, serie, coleccion, isChecked, monitas, ia, contrasena, enlacePatreon })
+        setLiga({ nombre, serie, coleccion, isChecked, monitas, ia, contrasena, enlacePatreon, enlaceMega })
 
     }
 
@@ -50,6 +52,7 @@ const Formulario = ({ setLiga }) => {
         setMonitas(false)
         setContrasena('')
         setEnlacePatreon('')
+        setEnlaceMega('')
     }
 
 
@@ -109,6 +112,16 @@ const Formulario = ({ setLiga }) => {
                     className="w-full border border-slate-300 mb-3 py-1 px-2 block"
                     value={enlacePatreon}
                     onChange={(e) => setEnlacePatreon(e.target.value)}
+                />
+                <label htmlFor="enlaceColeccionMega" className="font-bold text-red-500 text-lg mb-1 block">Enlace Coleccion Mega</label>
+                <input
+                    id="enlaceColeccionMega"
+                    type="text"
+                    name=""
+                    placeholder="Ingresa el enlace de la coleccion de Mega"
+                    className="w-full border border-slate-300 mb-3 py-1 px-2 block"
+                    value={enlaceMega}
+                    onChange={(e) => setEnlaceMega(e.target.value)}
                 />
 
 
