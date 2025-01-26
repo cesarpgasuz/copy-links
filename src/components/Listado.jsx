@@ -336,7 +336,7 @@ const Listado = ({ liga }) => {
                                     <ArticleTitle><strong className='bg-violet-500 text-white px-1'>Discord</strong>Temari</ArticleTitle>
                                     <ArticleBody>
                                         <div ref={cardTextDiscord}>
-                                            <h1>**{mayusculas(nombre)} #{coleccion}</h1>
+                                            <h1>**{mayusculas(nombre)} #{coleccion}**</h1>
                                             <br />
                                             <ul className='list-disc'>
                                                 <li>🟡 Utiliza el siguiente enlace para ir a Patreon y obtener la contraseña del archivo.</li>
