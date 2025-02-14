@@ -1,6 +1,7 @@
 import { useState } from "react"
 import toast, { Toaster } from 'react-hot-toast'
 import styles from '../styles/styles.module.css'
+import { generatePassword } from "../utilities/generatePassword"
 
 const Formulario = ({ setLiga }) => {
 
@@ -55,6 +56,17 @@ const Formulario = ({ setLiga }) => {
         setEnlaceMega('')
     }
 
+    const handleGeneratePassword = () => {
+        const newPassword = generatePassword();
+        setContrasena(newPassword);
+        toast.success("Contraseña generada")
+    }
+
+    const handleClearPassword = () => {
+        setContrasena('');
+        toast.success("Contraseña eliminada")
+    }
+
 
     return (
         <div className="sm:w-2/5 sm:h-screen bg-sky-950">
@@ -93,15 +105,30 @@ const Formulario = ({ setLiga }) => {
                     onChange={(e) => setColeccion(e.target.value)}
                 />
                 <label htmlFor="contrasena" className="font-bold text-slate-950 text-lg mb-1 block">Contraseña Winrar</label>
-                <input
-                    id="contrasena"
-                    type="text"
-                    name=""
-                    placeholder="Ingresa la contraseña del .rar"
-                    className="w-full border border-slate-300 mb-3 py-1 px-2 block"
-                    value={contrasena}
-                    onChange={(e) => setContrasena(e.target.value)}
-                />
+                <div className="flex gap-2 items-center mb-3 ">
+                    <input
+                        id="contrasena"
+                        type="text"
+                        name=""
+                        placeholder="Ingresa la contraseña del .rar"
+                        className="w-full border border-slate-300 py-1 px-2 block"
+                        value={contrasena}
+                        onChange={(e) => setContrasena(e.target.value)}
+                    />
+                    <button
+                        type="button"
+                        onClick={handleGeneratePassword}
+                        className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-700"
+                    >Generar</button>
+                    <button
+                        type="button"
+                        onClick={handleClearPassword}
+                        className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-700"
+                    >
+                        Limpiar
+                    </button>
+                </div>
+
 
                 <label htmlFor="enlaceColeccion" className="font-bold text-slate-950 text-lg mb-1 block">Enlace Coleccion Patreon</label>
                 <input
