@@ -419,9 +419,11 @@ const Listado = ({ liga }) => {
                                     <ArticleTitle>Facebook, Twitter, Instagram IA</ArticleTitle>
                                     <ArticleBody>
                                         <div ref={card4Ref}>
-                                            <strong>{mayusculas(nombre)}</strong><br />
-                                            <span>👉 https://monaschinas.link</span><br /><br />
-                                            <span>#{quitarEspacios(nombre).toLowerCase()} #{quitarEspacios(serie).toLowerCase()} #AIart #AIphoto #anime #AiAnime #AIanimegirl #DigitalArt #AIArtwork #aigirls #animeIA #waifu #cosplay</span>
+                                            <strong>{mayusculas(nombre)} - {mayusculas(serie)}</strong><br />
+                                            <span>👉 https://monaschinas.gumroad.com/l/mega</span><br /><br /><br />
+                                            <p>‎ </p>
+                                            
+                                            <p>#{quitarEspacios(nombre).toLowerCase()} #{quitarEspacios(serie).toLowerCase()} #AIart #AIphoto #anime #AiAnime #AIanimegirl #DigitalArt #AIArtwork #aigirls #animeIA #waifu #cosplay</p>
                                         </div>
                                         <button className='button-copy' onClick={handleCopyCard4}>Copy</button>
                                     </ArticleBody>
