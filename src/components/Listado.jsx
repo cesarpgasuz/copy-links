@@ -226,26 +226,31 @@ const Listado = ({ liga }) => {
                                     <ArticleTitle><strong className='bg-black text-white px-1'>Patreon</strong> Monitas Chinas Descripcion</ArticleTitle>
                                     <ArticleBody>
                                         <div ref={cardTitleJaponesRef}>
-                                            <ul className='list-disc'>
-                                                <li>Nueva Ilustración de {mayusculas(nombre)}</li>
-                                                <li>New Illustration of {mayusculas(nombre)}</li>
-                                            </ul>
+                                            <p>
+                                                <ul className='list-disc'>
+                                                    <li>Nueva Ilustración de {mayusculas(nombre)}</li>
+                                                    <li>New Illustration of {mayusculas(nombre)}</li>
+                                                </ul>
+                                            </p>
                                             <br />
                                             <br />
-
-                                            <ul className='list-disc'>
-                                                <li>Dirígete al canal de <strong>Discord</strong> para obtener el archivo .rar completo.</li>
-                                                <li>Head over to the <strong>Discord</strong> channel to get the full .rar file.</li>
-                                                <li>完全な .rar ファイルを入手するには、<strong>Discord</strong> チャンネルにアクセスしてください。</li>
-                                                <li>https://www.patreon.com/c/monitaschinas92/membership</li>
-                                            </ul>
+                                            <p>
+                                                <ul className='list-disc'>
+                                                    <li>Dirígete al canal de <strong>Discord</strong> para obtener el archivo .rar completo.</li>
+                                                    <li>Head over to the <strong>Discord</strong> channel to get the full .rar file.</li>
+                                                    <li>完全な .rar ファイルを入手するには、<strong>Discord</strong> チャンネルにアクセスしてください。</li>
+                                                    <li>https://www.patreon.com/c/monitaschinas92/membership</li>
+                                                </ul>
+                                            </p>
                                             <br />
                                             <br />
-                                            <ul className='list-disc'>
-                                                <li>Diviertete 🥳</li>
-                                                <li>Have fun 🥳</li>
-                                                <li>楽しんでください🥳</li>
-                                            </ul>
+                                            <p>
+                                                <ul className='list-disc'>
+                                                    <li>Diviertete 🥳</li>
+                                                    <li>Have fun 🥳</li>
+                                                    <li>楽しんでください🥳</li>
+                                                </ul>
+                                            </p>
                                             <br />
                                             <br />
                                             <strong>Pass: &nbsp; {contrasena}</strong>
@@ -425,7 +430,7 @@ const Listado = ({ liga }) => {
                                             <strong>{mayusculas(nombre)} - {mayusculas(serie)}</strong><br />
                                             <span>👉 https://monaschinas.gumroad.com/l/mega</span><br /><br /><br />
                                             <p>‎ </p>
-                                            
+
                                             <p>#{quitarEspacios(nombre).toLowerCase()} #{quitarEspacios(serie).toLowerCase()} #AIart #AIphoto #anime #AiAnime #AIanimegirl #DigitalArt #AIArtwork #aigirls #animeIA #waifu #cosplay</p>
                                         </div>
                                         <button className='button-copy' onClick={handleCopyCard4}>Copy</button>
