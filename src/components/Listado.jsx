@@ -231,6 +231,7 @@ const Listado = ({ liga }) => {
                                                 <li>New Illustration of {mayusculas(nombre)}</li>
                                             </ul>
                                             <br />
+                                            <br />
 
                                             <ul className='list-disc'>
                                                 <li>Dirígete al canal de <strong>Discord</strong> para obtener el archivo .rar completo.</li>
@@ -239,11 +240,13 @@ const Listado = ({ liga }) => {
                                                 <li>https://www.patreon.com/c/monitaschinas92/membership</li>
                                             </ul>
                                             <br />
+                                            <br />
                                             <ul className='list-disc'>
                                                 <li>Diviertete 🥳</li>
                                                 <li>Have fun 🥳</li>
                                                 <li>楽しんでください🥳</li>
                                             </ul>
+                                            <br />
                                             <br />
                                             <strong>Pass: &nbsp; {contrasena}</strong>
                                             <br />
