@@ -33,14 +33,38 @@ const Formulario = ({ setLiga }) => {
         e.preventDefault()
 
 
-        if ([nombre, serie, coleccion].includes('')) {
+        //limpiamos los datos antes de enviarlos
+        const datosLimpiados = {
+            nombre: nombre.trim(),
+            serie: serie.trim(),
+            coleccion: coleccion.trim(),
+            contrasena: contrasena.trim(),
+            enlacePatreon: enlacePatreon.trim(),
+            enlaceMega: enlaceMega.trim(),
+            isChecked,
+            monitas,
+            ia
+
+        }
+
+
+        // if ([nombre, serie, coleccion].includes('')) {
+        //     toast.error("hay campos vacios")
+        //     return
+        // }
+
+        //comprobamos si hay campos vacios
+        if([datosLimpiados.nombre, datosLimpiados.serie, datosLimpiados.coleccion].includes('')){
             toast.error("hay campos vacios")
             return
         }
 
 
 
-        setLiga({ nombre, serie, coleccion, isChecked, monitas, ia, contrasena, enlacePatreon, enlaceMega })
+        // setLiga({ nombre, serie, coleccion, isChecked, monitas, ia, contrasena, enlacePatreon, enlaceMega })
+
+        //datos limpiados
+        setLiga(datosLimpiados)
 
     }
 
