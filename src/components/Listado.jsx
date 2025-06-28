@@ -7,7 +7,7 @@ import LinkError from './ui/LinkError';
 import { quitarEspacios, mayusculas, textosConGuion, eliminarCadenaPatreon } from '../utilities';
 
 const Listado = ({ liga }) => {
-    const { nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas, boothMonitas, ia, contrasena, enlacePatreon, enlaceMega } = liga;
+    const { nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas, boothMonitas, ia, contrasena, enlacePatreon, enlaceMega, enlaceGumroad } = liga;
     const cardRef = useRef(null);
     const card2Ref = useRef(null);
     const card3Ref = useRef(null);
@@ -122,8 +122,6 @@ const Listado = ({ liga }) => {
         toast.success('Contraseña copiada')
     }
 
-
-
     const copyToClipboard = (element) => {
         if (element) {
             const selection = window.getSelection();
@@ -135,7 +133,6 @@ const Listado = ({ liga }) => {
             selection.removeAllRanges();
         }
     };
-
 
     return (
         <div className="sm:w-3/5 h-full mt-12 px-6 sm:h-screen sm:mt-0 bg-white overflow-y-auto pt-5">
@@ -207,8 +204,6 @@ const Listado = ({ liga }) => {
                             </>
 
                         )}
-
-
 
                         <Article>
                             <ArticleTitle>{monitas ? 'Patreon Monitas Chinas' : 'Patreon Anime'}</ArticleTitle>
@@ -289,7 +284,7 @@ const Listado = ({ liga }) => {
 
                             <>
                                 <Article>
-                                    <ArticleTitle><strong className='bg-black text-white px-1'>Patreon</strong> Monas Chinas Anime Descripcion</ArticleTitle>
+                                    <ArticleTitle><strong className='bg-black text-white px-1'>Patreon</strong> {enlaceGumroad ? 'Monas Chinas IA' : 'Monas Chinas Anime Descripcion'}</ArticleTitle>
                                     <ArticleBody>
                                         <div ref={cardTitleJaponesRef}>
                                             <ul className='list-disc'>
@@ -305,7 +300,8 @@ const Listado = ({ liga }) => {
                                                         <li>Dirígete al canal de <strong>Discord</strong> para obtener el archivo .rar completo.</li>
                                                         <li>Head over to the <strong>Discord</strong> channel to get the full .rar file.</li>
                                                         <li>完全な .rar ファイルを入手するには、<strong>Discord</strong> チャンネルにアクセスしてください。</li>
-                                                        <li>https://www.patreon.com/c/tea_time_by_temari/membership</li>
+                                                        <li>👇👇</li>
+                                                        <li>{enlaceGumroad ? 'https://linktr.ee/monaschinas_ia' : 'https://www.patreon.com/c/tea_time_by_temari/membership'}</li>
                                                     </ul>
                                                 </>
 
@@ -401,23 +397,9 @@ const Listado = ({ liga }) => {
                                     </ArticleBody>
                                 </Article>
 
-
-
-
                             </>
 
                         )}
-
-
-
-
-
-
-
-
-
-
-
 
                         {!monitas && ia && (
 
@@ -451,56 +433,80 @@ const Listado = ({ liga }) => {
                         )}
 
 
-
-
-
                         {isChecked && (
 
-
                             <>
-                                <Article>
-                                    <ArticleTitle>FIgma IA</ArticleTitle>
-                                    <ArticleBody>
-                                        <div ref={card11Ref}>
-                                            <strong>{mayusculas(nombre)} IA #{coleccion}</strong><br />
-                                            <span>{mayusculas(serie)}</span>
-                                        </div>
-                                        <button className='button-copy' onClick={handleCopyCard11}>Copy</button>
-                                    </ArticleBody>
-
-                                </Article>
 
 
                                 <Article>
-                                    <ArticleTitle>Figma Anime</ArticleTitle>
+                                    <ArticleTitle>❤❤❤ Gumroad - Contraseña ❤❤❤</ArticleTitle>
                                     <ArticleBody>
                                         <div ref={card12Ref}>
-                                            <strong>{mayusculas(nombre)} Anime #{coleccion}</strong><br />
-                                            <span>{mayusculas(serie)}</span>
+                                            <span>pass: <strong>{contrasena}</strong></span>
                                         </div>
                                         <button className='button-copy' onClick={handleCopyCard12}>Copy</button>
                                     </ArticleBody>
 
                                 </Article>
                                 <Article>
-                                    <ArticleTitle>Gumroad IA - Title</ArticleTitle>
-                                    <ArticleBody>
-                                        <p ref={card9Ref}>{mayusculas(nombre)} IA #{coleccion} - {mayusculas(serie)}</p>
+                                    <ArticleTitle>💜💜 Discord Gumroad - Monas IA 💜💜</ArticleTitle>
+                                    <ArticleBody estilos='bg-purple-200'>
+                                        <div ref={card11Ref}>
+                                            <h1>**{mayusculas(nombre)} #{coleccion}**</h1>
+                                            <br />
+                                            <ul className='list-disc'>
+                                                <li>🟡 Si eres miembro en Patreon, utiliza el siguiente enlace para ir al post y obtener la contraseña del archivo.</li>
+                                                <li>🟡 If you are a member on Patreon, use the following link to go to the post and get the file password.</li>
+                                                <li>🟡 Patreonのメンバーの方は、以下のリンクから投稿にアクセスし、ファイルのパスワードを入手してください。</li>
+                                            </ul>
+                                            <br />
+                                            <h5><strong>Link:  </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
+                                            <br />
+                                            <ul className='list-disc'>
+                                                <li>🟠 Si no tienes cuenta de Patreon o no quieres pagar mensualmente, puedes comprar la clave del archivo en Gumroad.</li>
+                                                <li>🟠 If you don't have a Patreon account or don't want to pay monthly, you can buy the file key on Gumroad.</li>
+                                                <li>🟠 Patreonのアカウントをお持ちでない場合や、毎月お支払いしたくない場合は、Gumroadでファイルのキーを購入できます。</li>
+                                            </ul>
+                                            <br />
+                                            <h5><strong>Link:  </strong>{enlaceGumroad ? enlaceGumroad : <LinkError />}</h5>
+                                            <br />
+                                            <ul>
+                                                <li>🟢 Descarga el Archivo utilizando este enlace.</li>
+                                                <li>🟢 Download the file using this link</li>
+                                                <li>🟢 このリンクを使用してファイルをダウンロードしてください。</li>
+                                            </ul>
+                                            <br />
+                                            <h5><strong>Link:  </strong>{enlaceMega ? enlaceMega : <LinkError />}</h5>
+                                        </div>
+                                        <button className='button-copy' onClick={handleCopyCard11}>Copy</button>
+                                    </ArticleBody>
+                                </Article>
+
+
+
+                                <Article>
+                                    <ArticleTitle>💙💙 Facebook Descripcion 💙💙</ArticleTitle>
+                                    <ArticleBody estilos='bg-blue-200'>
+                                        <div ref={card9Ref}>
+                                            <strong>{mayusculas(nombre)} - {mayusculas(serie)}</strong><br /><br />
+                                            <ul>
+                                                <li>Únete a nuestro Discord para comprar esta colección.</li>
+                                                <li>👉 https://discord.gg/KsxbtsaEjW</li>
+                                                <li>‎ </li>
+                                                <li>‎ </li>
+                                            </ul>
+                                          
+
+                                            <p>#{quitarEspacios(nombre).toLowerCase()} #{quitarEspacios(serie).toLowerCase()} #AIart #AIphoto #anime #AiAnime #AIanimegirl #DigitalArt #AIArtwork #aigirls #animeIA #waifu #cosplay</p>
+                                        </div>
+                                        
                                         <button className='button-copy' onClick={handleCopyCard9}>Copy</button>
                                     </ArticleBody>
                                 </Article>
-                                <Article>
-                                    <ArticleTitle>Gumroad Anime - Title</ArticleTitle>
-                                    <ArticleBody>
-                                        <p ref={card10Ref}>{mayusculas(nombre)} Anime #{coleccion} - {mayusculas(serie)}</p>
-                                        <button className='button-copy' onClick={handleCopyCard10}>Copy</button>
-                                    </ArticleBody>
-                                </Article>
+
                             </>
 
                         )}
-
-
 
                         <Article>
                             <ArticleTitle><strong className='bg-cyan-300 px-2'>Pixiv</strong> Title {monitas ? 'Monitas Chinas' : 'Monas Chinas Anime'}</ArticleTitle>
@@ -524,8 +530,6 @@ const Listado = ({ liga }) => {
                             </Article>
                         )}
 
-
-
                         {!monitas && (
 
                             <Article>
@@ -540,9 +544,6 @@ const Listado = ({ liga }) => {
                             </Article>
                         )}
 
-
-
-
                         <Article>
                             <ArticleTitle>{monitas ? 'Twitter Monitas Chinas' : 'Twitter Monas Chinas Anime'}</ArticleTitle>
                             <ArticleBody>
@@ -554,14 +555,7 @@ const Listado = ({ liga }) => {
                             </ArticleBody>
                         </Article>
 
-
-
-
-
                     </section>
-
-
-
 
                 </main>
             ) : (

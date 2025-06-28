@@ -26,6 +26,8 @@ const Formulario = ({ setLiga }) => {
 
     const [enlaceMega, setEnlaceMega] = useState('')
 
+    const [enlaceGumroad, setEnlaceGumroad] = useState('')
+
 
 
 
@@ -41,10 +43,10 @@ const Formulario = ({ setLiga }) => {
             contrasena: contrasena.trim(),
             enlacePatreon: enlacePatreon.trim(),
             enlaceMega: enlaceMega.trim(),
+            enlaceGumroad: enlaceGumroad.trim(),
             isChecked,
             monitas,
             ia
-
         }
 
 
@@ -78,6 +80,7 @@ const Formulario = ({ setLiga }) => {
         setContrasena('')
         setEnlacePatreon('')
         setEnlaceMega('')
+        setEnlaceGumroad('')
     }
 
     const handleGeneratePassword = () => {
@@ -174,6 +177,18 @@ const Formulario = ({ setLiga }) => {
                     value={enlaceMega}
                     onChange={(e) => setEnlaceMega(e.target.value)}
                 />
+
+                <label htmlFor="enlaceColeccionGumroad" className="font-bold text-purple-500 text-lg mb-1 block">Enlace Coleccion Gumroad</label>
+                <input
+                    id="enlaceColeccionGumroad"
+                    type="text"
+                    name=""
+                    placeholder="Ingresa el enlace de la coleccion de Gumroad"
+                    className="w-full border border-slate-300 mb-3 py-1 px-2 block"
+                    value={enlaceGumroad}
+                    onChange={(e) => setEnlaceGumroad(e.target.value)}
+                />
+
 
 
                 <div className={`flex flex-col gap-3 py-4 ${styles.opciones}`}>
