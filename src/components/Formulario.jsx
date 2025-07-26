@@ -28,6 +28,8 @@ const Formulario = ({ setLiga }) => {
 
     const [enlaceGumroad, setEnlaceGumroad] = useState('')
 
+    const [enlaceKofi, setEnlaceKofi] = useState('')
+
 
 
 
@@ -44,6 +46,7 @@ const Formulario = ({ setLiga }) => {
             enlacePatreon: enlacePatreon.trim(),
             enlaceMega: enlaceMega.trim(),
             enlaceGumroad: enlaceGumroad.trim(),
+            enlaceKofi: enlaceKofi.trim(),
             isChecked,
             monitas,
             ia
@@ -81,6 +84,7 @@ const Formulario = ({ setLiga }) => {
         setEnlacePatreon('')
         setEnlaceMega('')
         setEnlaceGumroad('')
+        setEnlaceKofi('')
     }
 
     const handleGeneratePassword = () => {
@@ -187,6 +191,17 @@ const Formulario = ({ setLiga }) => {
                     className="w-full border border-slate-300 mb-3 py-1 px-2 block"
                     value={enlaceGumroad}
                     onChange={(e) => setEnlaceGumroad(e.target.value)}
+                />
+
+                <label htmlFor="enlaceColeccionKofi" className="font-bold text-orange-500 text-lg mb-1 block">Enlace Coleccion Kofi</label>
+                <input
+                    id="enlaceColeccionKofi"
+                    type="text"
+                    name=""
+                    placeholder="Ingresa el enlace de la coleccion de Kofi"
+                    className="w-full border border-slate-300 mb-3 py-1 px-2 block"
+                    value={enlaceKofi}
+                    onChange={(e) => setEnlaceKofi(e.target.value)}
                 />
 
 

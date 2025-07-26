@@ -7,7 +7,7 @@ import LinkError from './ui/LinkError';
 import { quitarEspacios, mayusculas, textosConGuion, eliminarCadenaPatreon } from '../utilities';
 
 const Listado = ({ liga }) => {
-    const { nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas, boothMonitas, ia, contrasena, enlacePatreon, enlaceMega, enlaceGumroad } = liga;
+    const { nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas, boothMonitas, ia, contrasena, enlacePatreon, enlaceMega, enlaceGumroad, enlaceKofi } = liga;
     const cardRef = useRef(null);
     const card2Ref = useRef(null);
     const card3Ref = useRef(null);
@@ -133,6 +133,34 @@ const Listado = ({ liga }) => {
             selection.removeAllRanges();
         }
     };
+
+
+    const mes = new Date().getMonth();
+    console.log(mes)
+
+    const ano = new Date().getFullYear();
+    const meses = [
+    {
+        espanol: [
+            'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+        ],
+        ingles: [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ],
+        japones: [
+            '一月 (Ichigatsu)', '二月 (Nigatsu)', '三月 (Sangatsu)', '四月 (Shigatsu)',
+            '五月 (Gogatsu)', '六月 (Rokugatsu)', '七月 (Shichigatsu)', '八月 (Hachigatsu)',
+            '九月 (Kugatsu)', '十月 (Juugatsu)', '十一月 (Juuichigatsu)', '十二月 (Juunigatsu)'
+        ]
+    }
+];
+
+
+console.log(meses[0].espanol[mes]);
+console.log(meses[0].ingles[mes]);
+console.log(meses[0].japones[mes]);
 
     return (
         <div className="sm:w-3/5 h-full mt-12 px-6 sm:h-screen sm:mt-0 bg-white overflow-y-auto pt-5">
@@ -340,23 +368,52 @@ const Listado = ({ liga }) => {
                                     <ArticleTitle><strong className='bg-violet-500 text-white px-1'>Discord</strong>Temari</ArticleTitle>
                                     <ArticleBody>
                                         <div ref={cardTextDiscord}>
+                                            <p>➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖</p>
                                             <h1>**{mayusculas(nombre)} #{coleccion}**</h1>
                                             <br />
                                             <ul className='list-disc'>
-                                                <li>🟡 Utiliza el siguiente enlace para ir a Patreon y obtener la contraseña del archivo.</li>
-                                                <li>🟡 Please use the link below to go to Patreon and get the password for the file.</li>
-                                                <li>🟡 以下のリンクを使用して Patreon にアクセスし、ファイルのパスワードを取得します。</li>
+                                                <li>📁 Colección <strong>{meses[0].espanol[mes]} - {ano}</strong></li>
+                                                <li>📁 Collection <strong>{meses[0].ingles[mes]} - {ano}</strong></li>
+                                                <li>📁 コレクション  <strong>{meses[0].japones[mes]} - {ano}</strong></li>
                                             </ul>
                                             <br />
-                                            <h5><strong>Link:  </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
+                                            <br />
+                                            <ul className='list-disc'>
+                                                <li>🟠 Con tu membresía de Kofi tienes acceso a la contraseña del archivo</li>
+                                                <li>🟠 With your Kofi membership, you get access to the file password.</li>
+                                                <li>🟠 Kofiのメンバーシップで、ファイルのパスワードにアクセスできます。</li>
+                                            </ul>
+                                            <br />
+                                            <h5><strong>Link:  </strong>{enlaceKofi ? enlaceKofi : <LinkError />}</h5>
+                                            <br />
+                                            <br />
+                                            <ul className='list-disc'>
+                                                <li>🟣 Si no quieres suscribirte puedes comprar la clave en gumroad</li>
+                                                <li>🟣 If you don't want to subscribe, you can buy the key on Gumroad.</li>
+                                                <li>🟣 購読したくない場合は、Gumroadでキーを購入できます</li>
+                                            </ul>
+                                            <br />
+                                            <h5><strong>Link:  </strong>{enlaceGumroad ? enlaceGumroad : <LinkError />}</h5>
+                                            <br />
                                             <br />
                                             <ul>
-                                                <li>🟡 Descarga el Archivo utilizando este enlace.</li>
-                                                <li>🟡 Download the file using this link</li>
-                                                <li>🟡 このリンクを使用してファイルをダウンロードしてください。</li>
+                                                <li>✅ Descarga el Archivo utilizando este enlace.</li>
+                                                <li>✅ Download the file using this link</li>
+                                                <li>✅ このリンクを使用してファイルをダウンロードしてください。</li>
                                             </ul>
                                             <br />
                                             <h5><strong>Link:  </strong>{enlaceMega ? enlaceMega : <LinkError />}</h5>
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <ul>
+                                                <li>🔰 La contraseña sirve para todos los archivos del mes.</li>
+                                                <li>🔰 The password works for all files of the month.</li>
+                                                <li>🔰 パスワードは、その月のすべてのファイルに有効です。</li>
+                                            </ul>
+                                            <br />
+                                            <br />
+                                            <p>➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖</p>
 
                                         </div>
                                         <button className='button-copy' onClick={handleCopyCardTextDiscord}>Copy</button>
