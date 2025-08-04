@@ -136,31 +136,32 @@ const Listado = ({ liga }) => {
 
 
     const mes = new Date().getMonth();
+    // const mes = 6; // Cambia esto al mes que necesites para pruebas
     console.log(mes)
 
     const ano = new Date().getFullYear();
     const meses = [
-    {
-        espanol: [
-            'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-        ],
-        ingles: [
-            'January', 'February', 'March', 'April', 'May', 'June',
-            'July', 'August', 'September', 'October', 'November', 'December'
-        ],
-        japones: [
-            '一月 (Ichigatsu)', '二月 (Nigatsu)', '三月 (Sangatsu)', '四月 (Shigatsu)',
-            '五月 (Gogatsu)', '六月 (Rokugatsu)', '七月 (Shichigatsu)', '八月 (Hachigatsu)',
-            '九月 (Kugatsu)', '十月 (Juugatsu)', '十一月 (Juuichigatsu)', '十二月 (Juunigatsu)'
-        ]
-    }
-];
+        {
+            espanol: [
+                'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+            ],
+            ingles: [
+                'January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ],
+            japones: [
+                '一月 (Ichigatsu)', '二月 (Nigatsu)', '三月 (Sangatsu)', '四月 (Shigatsu)',
+                '五月 (Gogatsu)', '六月 (Rokugatsu)', '七月 (Shichigatsu)', '八月 (Hachigatsu)',
+                '九月 (Kugatsu)', '十月 (Juugatsu)', '十一月 (Juuichigatsu)', '十二月 (Juunigatsu)'
+            ]
+        }
+    ];
 
 
-console.log(meses[0].espanol[mes]);
-console.log(meses[0].ingles[mes]);
-console.log(meses[0].japones[mes]);
+    console.log(meses[0].espanol[mes]);
+    console.log(meses[0].ingles[mes]);
+    console.log(meses[0].japones[mes]);
 
     return (
         <div className="sm:w-3/5 h-full mt-12 px-6 sm:h-screen sm:mt-0 bg-white overflow-y-auto pt-5">
@@ -371,49 +372,28 @@ console.log(meses[0].japones[mes]);
                                             <p>➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖</p>
                                             <h1>**{mayusculas(nombre)} #{coleccion}**</h1>
                                             <br />
-                                            <ul className='list-disc'>
-                                                <li>📁 Colección <strong>{meses[0].espanol[mes]} - {ano}</strong></li>
-                                                <li>📁 Collection <strong>{meses[0].ingles[mes]} - {ano}</strong></li>
-                                                <li>📁 コレクション  <strong>{meses[0].japones[mes]} - {ano}</strong></li>
-                                            </ul>
-                                            <br />
-                                            <br />
-                                            <ul className='list-disc'>
-                                                <li>🟠 Con tu membresía de Kofi tienes acceso a la contraseña del archivo</li>
-                                                <li>🟠 With your Kofi membership, you get access to the file password.</li>
-                                                <li>🟠 Kofiのメンバーシップで、ファイルのパスワードにアクセスできます。</li>
-                                            </ul>
-                                            <br />
-                                            <h5><strong>Link:  </strong>{enlaceKofi ? enlaceKofi : <LinkError />}</h5>
-                                            <br />
-                                            <br />
-                                            <ul className='list-disc'>
-                                                <li>🟣 Si no quieres suscribirte puedes comprar la clave en gumroad</li>
-                                                <li>🟣 If you don't want to subscribe, you can buy the key on Gumroad.</li>
-                                                <li>🟣 購読したくない場合は、Gumroadでキーを購入できます</li>
-                                            </ul>
-                                            <br />
-                                            <h5><strong>Link:  </strong>{enlaceGumroad ? enlaceGumroad : <LinkError />}</h5>
-                                            <br />
+                                            <h5><strong>📁&nbsp; File:&nbsp;   **</strong>{enlaceKofi ? enlaceKofi : <LinkError />}**</h5>
                                             <br />
                                             <ul>
-                                                <li>✅ Descarga el Archivo utilizando este enlace.</li>
-                                                <li>✅ Download the file using this link</li>
-                                                <li>✅ このリンクを使用してファイルをダウンロードしてください。</li>
+                                                <li>📅&nbsp; {meses[0].espanol[mes]}</li>
+                                                <li>📅&nbsp; {meses[0].ingles[mes]}</li>
+                                                <li>📅&nbsp; {meses[0].japones[mes]}</li>
                                             </ul>
                                             <br />
-                                            <h5><strong>Link:  </strong>{enlaceMega ? enlaceMega : <LinkError />}</h5>
+                                            <p>🌍&nbsp; https://temari-links.netlify.app/</p>
                                             <br />
+
+                                            <p>Para acceder a los enlaces y encontrar las colecciones, por favor, visiten esta página: https://temari-links.netlify.app/. Lamento que haya tantos enlaces, pero fue la única manera que encontré para poder compartir estas imágenes. Espero que Ko-fi no me elimine la cuenta por esto.
+                                            </p>
                                             <br />
+                                            <p>To access the links and find the collections, please visit this page: https://temari-links.netlify.app/. I apologize for having so many links, but this was the only way I could find to share these images. I hope Ko-fi doesn't delete my account because of this.</p>
                                             <br />
-                                            <ul>
-                                                <li>🔰 La contraseña sirve para todos los archivos del mes.</li>
-                                                <li>🔰 The password works for all files of the month.</li>
-                                                <li>🔰 パスワードは、その月のすべてのファイルに有効です。</li>
-                                            </ul>
+
+                                            <p>リンクにアクセスしてコレクションを見つけるには、こちらのページにアクセスしてください： https://temari-links.netlify.app/ リンクが多くなってしまい申し訳ありませんが、これが画像を共有できる唯一の方法でした。これでKo-fiにアカウントを削除されないことを願っています</p>
                                             <br />
                                             <br />
                                             <p>➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖</p>
+
 
                                         </div>
                                         <button className='button-copy' onClick={handleCopyCardTextDiscord}>Copy</button>
@@ -552,11 +532,11 @@ console.log(meses[0].japones[mes]);
                                                 <li>‎ </li>
                                                 <li>‎ </li>
                                             </ul>
-                                          
+
 
                                             <p>#{quitarEspacios(nombre).toLowerCase()} #{quitarEspacios(serie).toLowerCase()} #AIart #AIphoto #anime #AiAnime #AIanimegirl #DigitalArt #AIArtwork #aigirls #animeIA #waifu #cosplay</p>
                                         </div>
-                                        
+
                                         <button className='button-copy' onClick={handleCopyCard9}>Copy</button>
                                     </ArticleBody>
                                 </Article>
