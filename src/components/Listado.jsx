@@ -7,7 +7,7 @@ import LinkError from './ui/LinkError';
 import { quitarEspacios, mayusculas, textosConGuion, eliminarCadenaPatreon } from '../utilities';
 
 const Listado = ({ liga }) => {
-    const { nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas, boothMonitas, ia, contrasena, enlacePatreon, enlaceMega, enlaceGumroad, enlaceKofi } = liga;
+    const { nombre, serie, coleccion, gumroad, isChecked, monitas, patreonMonitas, boothMonitas, ia, contrasena, enlacePatreon, enlaceMega, enlaceGumroad, enlaceKofi, buttonKurumi } = liga;
     const cardRef = useRef(null);
     const card2Ref = useRef(null);
     const card3Ref = useRef(null);
@@ -545,7 +545,7 @@ const Listado = ({ liga }) => {
                         )}
 
                         <Article>
-                            <ArticleTitle><strong className='bg-cyan-300 px-2'>Pixiv</strong> Title {monitas ? 'Monitas Chinas' : 'Monas Chinas Anime'}</ArticleTitle>
+                            <ArticleTitle><strong className='bg-cyan-300 px-2'>Pixiv</strong> Title {monitas ? 'Monitas Chinas' :(buttonKurumi ? 'Kurumi Tokisaki' : 'Monas Chinas Anime')}</ArticleTitle>
                             <ArticleBody>
                                 <p ref={card5Ref}>{mayusculas(nombre)} #{coleccion}</p>
                                 <button className='button-copy' onClick={handleCopyCard5}>Copy</button>
@@ -569,11 +569,11 @@ const Listado = ({ liga }) => {
                         {!monitas && (
 
                             <Article>
-                                <ArticleTitle><strong className='bg-cyan-300 px-2'>Pixiv</strong> Descripcion Monas Chinas Anime</ArticleTitle>
+                                <ArticleTitle><strong className='bg-cyan-300 px-2'>Pixiv</strong> {!buttonKurumi ? 'Descripcion Monas Chinas Anime' : 'Descripcion Kurumi Tokisaki'}</ArticleTitle>
                                 <ArticleBody>
                                     <div ref={card13Ref}>
                                         <strong>Social networks</strong><br />
-                                        <span>https://linktr.ee/monaschinas_ia </span><br /><br />
+                                        <span>{!buttonKurumi ? 'https://linktr.ee/monaschinas_ia' : 'https://linktr.ee/kurumitokiaki__'} </span><br /><br />
                                     </div>
                                     <button className='button-copy' onClick={handleCopyCard13}>Copy</button>
                                 </ArticleBody>
