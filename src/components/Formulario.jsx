@@ -12,10 +12,7 @@ const Formulario = ({ setLiga }) => {
     const [serie, setSerie] = useState('')
     // numero de la coleccion
     const [coleccion, setColeccion] = useState('')
-    //activar gumroad 
-    const [isChecked, setIsChecked] = useState(false);
-    //link gumroad 
-    // const [gumroad, setGumroad] = useState('')
+    
 
     const [monitas, setMonitas] = useState(false)
 
@@ -33,7 +30,7 @@ const Formulario = ({ setLiga }) => {
 
     const [enlaceGumroad, setEnlaceGumroad] = useState('')
 
-    const [enlaceKofi, setEnlaceKofi] = useState('')
+    
 
     const [dragActive, setDragActive] = useState(false);
 
@@ -49,14 +46,12 @@ const Formulario = ({ setLiga }) => {
             nombre: nombre.trim(),
             serie: serie.trim(),
             coleccion: coleccion.trim(),
+            monitas,
+            ia,
             contrasena: contrasena.trim(),
             enlacePatreon: enlacePatreon.trim(),
             enlaceMega: enlaceMega.trim(),
             enlaceGumroad: enlaceGumroad.trim(),
-            enlaceKofi: enlaceKofi.trim(),
-            isChecked,
-            monitas,
-            ia,
             buttonKurumi
         }
 
@@ -86,13 +81,13 @@ const Formulario = ({ setLiga }) => {
         setSerie('')
         setColeccion('')
         setLiga({})
-        setIsChecked(false)
+       
         setMonitas(false)
         setContrasena('')
         setEnlacePatreon('')
         setEnlaceMega('')
         setEnlaceGumroad('')
-        setEnlaceKofi('')
+       
         setIa(false)
         setButtonKurumi(false)
     }
@@ -173,7 +168,7 @@ const Formulario = ({ setLiga }) => {
                 <form
                     onSubmit={handleSubmit}
                     className="bg-white m-4 p-6 w-[80%] mx-auto mt-6 rounded">
-                    <label htmlFor="nombre" className="font-bold text-slate-950 text-lg mb-1 block">Personaje</label>
+                    <label htmlFor="nombre" className="font-bold text-slate-950 text-lg mb-1 block">Nombre Personaje</label>
                     <input
                         id="nombre"
                         type="text"
@@ -261,22 +256,12 @@ const Formulario = ({ setLiga }) => {
                         onChange={(e) => setEnlaceGumroad(e.target.value)}
                     />
 
-                    <label htmlFor="enlaceColeccionKofi" className="font-bold text-orange-500 text-lg mb-1 block">Enlace Coleccion Kofi</label>
-                    <input
-                        id="enlaceColeccionKofi"
-                        type="text"
-                        name=""
-                        placeholder="Ingresa el enlace de la coleccion de Kofi"
-                        className="w-full border border-slate-300 mb-3 py-1 px-2 block"
-                        value={enlaceKofi}
-                        onChange={(e) => setEnlaceKofi(e.target.value)}
-                    />
-
+                  
 
 
                     <div className={`flex flex-col gap-3 py-4 ${styles.opciones}`}>
                         <div className={`flex items-center gap-3 ${ia ? styles.active : ''}`}>
-                            <label htmlFor="monasia" className="font-bold text-slate-950 text-lg mb-1 block w-full h-full hover:cursor-pointer">Monas China IA</label>
+                            <label htmlFor="monasia" className="font-bold text-slate-950 text-lg mb-1 block w-full h-full hover:cursor-pointer">Cosplay IA</label>
                             <input
                                 id="monasia"
                                 type="checkbox"
@@ -297,7 +282,7 @@ const Formulario = ({ setLiga }) => {
                             />
                         </div>
 
-                        <div className={`flex items-center gap-3 ${isChecked ? styles.active : ''}`}>
+                        {/* <div className={`flex items-center gap-3 ${isChecked ? styles.active : ''}`}>
                             <label htmlFor="gumroad" className="font-bold text-slate-950 text-lg mb-1 block w-full h-full hover:cursor-pointer">Producto de Gumroad</label>
                             <input
                                 id="gumroad"
@@ -306,7 +291,7 @@ const Formulario = ({ setLiga }) => {
                                 onChange={() => setIsChecked(!isChecked)}
                                 className="hidden"
                             />
-                        </div>
+                        </div> */}
 
                         <div className={`flex items-center gap-3 ${buttonKurumi ? styles.active : ''}`}>
                             <label htmlFor="buttonKurumi" className="font-bold text-slate-950 text-lg mb-1 block w-full h-full hover:cursor-pointer">Kurumi Tokisaki</label>
@@ -334,7 +319,7 @@ const Formulario = ({ setLiga }) => {
 
                     <input
                         type="submit"
-                        className="mt-4 bg-lime-400 hover:bg-black hover:text-lime-400 text-black font-bold text-lg uppercase hover:cursor-pointer w-full py-1"
+                        className="mt-4 bg-lime-400 hover:bg-black hover:text-lime-400 text-black font-bold text-2xl uppercase hover:cursor-pointer w-full py-4"
                         value='Generar Links'
                     />
 
