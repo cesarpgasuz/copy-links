@@ -8,7 +8,6 @@ function App() {
   return (
     <section className='sm:flex'>
       <Formulario
-        liga={liga}
         setLiga={setLiga}
       />
       <Listado
