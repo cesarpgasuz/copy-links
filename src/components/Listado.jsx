@@ -533,7 +533,7 @@ const Listado = ({ liga }) => {
                                         <ArticleBody>
                                             <div ref={card13Ref}>
                                                 <strong>Social networks</strong><br />
-                                                <span>{!buttonKurumi ? 'https://linktr.ee/monaschinas_ia' : 'https://linktr.ee/kurumitokiaki__'} </span><br /><br />
+                                                <span>{!buttonKurumi ? 'https://linktr.ee/monaschinas_ia' : 'https://linktr.ee/kurumitokisaki__'} </span><br /><br />
                                             </div>
                                             <button className='button-copy' onClick={handleCopyCard13}>Copy</button>
                                         </ArticleBody>
