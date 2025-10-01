@@ -375,7 +375,7 @@ const Listado = ({ liga }) => {
                                     <div ref={cardTextDiscord}>
 
                                         {/* ---------discord monitas chinas descripcion ----------------- */}
-                                        {monitas && contrasena && enlacePatreon && !buttonKurumi && (
+                                        {monitas && contrasena && enlacePatreon && !buttonKurumi && enlaceMega && (
                                             <>
                                                 <h1>**{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}**</h1>
                                                 <br />
@@ -386,6 +386,14 @@ const Listado = ({ liga }) => {
                                                 </ul>
                                                 <br />
                                                 <h5><strong>Link: </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
+                                                <br />
+                                                <ul>
+                                                    <li>🟢 Descarga el Archivo utilizando este enlace.</li>
+                                                    <li>🟢 Download the file using this link</li>
+                                                    <li>🟢 このリンクを使用してファイルをダウンロードしてください。</li>
+                                                </ul>
+                                                <br />
+                                                <h5><strong>Link:  </strong>{enlaceMega ? enlaceMega : <LinkError />}</h5>
                                             </>
                                         )}
 
