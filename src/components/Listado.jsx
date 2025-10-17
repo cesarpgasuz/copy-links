@@ -398,7 +398,7 @@ const Listado = ({ liga }) => {
                                         )}
 
                                         {/* ------- discord cosplay ia -------------*/}
-                                        {ia && contrasena && enlacePatreon && enlaceMega && enlaceGumroad && !monitas && !buttonKurumi && (
+                                        {ia && contrasena && enlacePatreon && enlaceMega && !monitas && !buttonKurumi && (
 
                                             <>
                                                 <h1>**{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}**</h1>
@@ -411,14 +411,14 @@ const Listado = ({ liga }) => {
                                                 <br />
                                                 <h5><strong>Link:  </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
                                                 <br />
-                                                <ul className='list-disc'>
+                                                {/* <ul className='list-disc'>
                                                     <li>🟠 Si no tienes cuenta de Patreon o no quieres pagar mensualmente, puedes comprar la clave del archivo en Gumroad.</li>
                                                     <li>🟠 If you don't have a Patreon account or don't want to pay monthly, you can buy the file key on Gumroad.</li>
                                                     <li>🟠 Patreonのアカウントをお持ちでない場合や、毎月お支払いしたくない場合は、Gumroadでファイルのキーを購入できます。</li>
                                                 </ul>
                                                 <br />
                                                 <h5><strong>Link:  </strong>{enlaceGumroad ? enlaceGumroad : <LinkError />}</h5>
-                                                <br />
+                                                <br /> */}
                                                 <ul>
                                                     <li>🟢 Descarga el Archivo utilizando este enlace.</li>
                                                     <li>🟢 Download the file using this link</li>
