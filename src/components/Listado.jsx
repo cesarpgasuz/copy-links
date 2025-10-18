@@ -467,7 +467,7 @@ const Listado = ({ liga }) => {
 
                         { /* --------------------- post facebook cosplay ia ------------------ */}
 
-                        {enlaceGumroad && ia && (
+                        {ia && (
 
                             <>
                                 <Article>
