@@ -542,6 +542,7 @@ const Listado = ({ liga }) => {
                                             <div ref={card13Ref}>
                                                 <strong>Social networks</strong><br />
                                                 <span>{!buttonKurumi ? 'https://linktr.ee/monaschinas_ia' : 'https://linktr.ee/kurumitokisaki__'} </span><br /><br />
+                                                <p>{enlaceGumroad ? enlaceGumroad : ''}</p>
                                             </div>
                                             <button className='button-copy' onClick={handleCopyCard13}>Copy</button>
                                         </ArticleBody>
