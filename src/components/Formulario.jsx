@@ -224,7 +224,7 @@ const Formulario = ({ setLiga }) => {
                     </div>
 
 
-                    <label htmlFor="enlaceColeccion" className="font-bold text-slate-950 text-lg mb-1 block">Enlace Coleccion Patreon</label>
+                    <label htmlFor="enlaceColeccion" className="font-bold text-slate-950 text-lg mb-1 block">{ia ? 'SuscribeAdult' : 'Enlace Coleccion Patreon'}</label>
                     <input
                         id="enlaceColeccion"
                         type="text"
@@ -234,7 +234,7 @@ const Formulario = ({ setLiga }) => {
                         value={enlacePatreon}
                         onChange={(e) => setEnlacePatreon(e.target.value)}
                     />
-                    <label htmlFor="enlaceColeccionMega" className="font-bold text-red-500 text-lg mb-1 block">Enlace Coleccion Mega</label>
+                    <label htmlFor="enlaceColeccionMega" className="font-bold text-orange-700 text-lg mb-1 block">Enlace Coleccion Mega</label>
                     <input
                         id="enlaceColeccionMega"
                         type="text"
@@ -245,7 +245,7 @@ const Formulario = ({ setLiga }) => {
                         onChange={(e) => setEnlaceMega(e.target.value)}
                     />
 
-                    <label htmlFor="enlaceColeccionGumroad" className="font-bold text-purple-500 text-lg mb-1 block">Enlace Coleccion Gumroad</label>
+                    <label htmlFor="enlaceColeccionGumroad" className="font-bold text-red-600 text-lg mb-1 block">Enlace Coleccion Boosty</label>
                     <input
                         id="enlaceColeccionGumroad"
                         type="text"

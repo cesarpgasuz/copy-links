@@ -404,9 +404,9 @@ const Listado = ({ liga }) => {
                                                 <h1>**{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}**</h1>
                                                 <br />
                                                 <ul className='list-disc'>
-                                                    <li>🟡 Utiliza el siguiente enlace para ir a Patreon y obtener la contraseña del archivo.</li>
-                                                    <li>🟡 Please use the link below to go to Patreon and get the password for the file.</li>
-                                                    <li>🟡 以下のリンクを使用して Patreon にアクセスし、ファイルのパスワードを取得します。</li>
+                                                    <li>🟡 Utiliza el siguiente enlace para ir a subscribestar.adult y obtener la contraseña del archivo.</li>
+                                                    <li>🟡 Use the following link to go to subscribestar.adult and get the file password.</li>
+                                                    <li>🟡 以下のリンクを使って subscribestar.adult にアクセスし、ファイルのパスワードを入手してください。</li>
                                                 </ul>
                                                 <br />
                                                 <h5><strong>Link:  </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
@@ -542,7 +542,15 @@ const Listado = ({ liga }) => {
                                             <div ref={card13Ref}>
                                                 <strong>Social networks</strong><br />
                                                 <span>{!buttonKurumi ? 'https://linktr.ee/monaschinas_ia' : 'https://linktr.ee/kurumitokisaki__'} </span><br /><br />
-                                                <p>{enlaceGumroad ? enlaceGumroad : ''}</p>
+                                                
+                                                {enlaceGumroad && !buttonKurumi && (
+                                                    <>
+                                                    <strong>Support me on Boosty</strong><br />
+                                                    <span>https://boosty.to/monaschinasia</span><br /><br />
+                                                    <strong>Full gallery on Boosty:</strong><br />
+                                                    <span>{enlaceGumroad}</span>
+                                                    </>
+                                                )}
                                             </div>
                                             <button className='button-copy' onClick={handleCopyCard13}>Copy</button>
                                         </ArticleBody>
