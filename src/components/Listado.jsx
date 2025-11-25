@@ -22,9 +22,10 @@ const Listado = ({ liga }) => {
     const card15Ref = useRef(null);
     const nombreRef = useRef(null);
     const cardTitleXJaponesRef = useRef(null);
-    const serieRef = useRef(null)
-    const cardTextDiscord = useRef(null)
-    const contrasenaRef = useRef(null)
+    const serieRef = useRef(null);
+    const cardTextDiscord = useRef(null);
+    const cardTextDiscordBoosty = useRef(null);
+    const contrasenaRef = useRef(null);
 
 
     const handleCopyCard1 = () => {
@@ -40,12 +41,12 @@ const Listado = ({ liga }) => {
         copyToClipboard(card3Ref.current);
         toast.success('Texto Copiado')
     };
-  
+
     const handleCopyCard5 = () => {
         copyToClipboard(card5Ref.current);
         toast.success('Texto Copiado')
     };
-  
+
     const handleCopyCard7 = () => {
         copyToClipboard(card7Ref.current);
         toast.success('Texto Copiado')
@@ -55,7 +56,7 @@ const Listado = ({ liga }) => {
         copyToClipboard(card9Ref.current);
         toast.success('Texto Copiado')
     };
-  
+
     const handleCopyCard11 = () => {
         copyToClipboard(card11Ref.current);
         toast.success('Texto Copiado')
@@ -68,7 +69,7 @@ const Listado = ({ liga }) => {
         copyToClipboard(card13Ref.current);
         toast.success('Texto Copiado')
     };
-  
+
     const handleCopyCard15 = () => {
         copyToClipboard(card15Ref.current);
         toast.success('Texto Copiado')
@@ -91,6 +92,10 @@ const Listado = ({ liga }) => {
 
     const handleCopyCardTextDiscord = () => {
         copyToClipboard(cardTextDiscord.current);
+        toast.success('Parrafo Copiado')
+    }
+    const handleCopyCardTextDiscordBoosty = () => {
+        copyToClipboard(cardTextDiscordBoosty.current);
         toast.success('Parrafo Copiado')
     }
 
@@ -138,7 +143,7 @@ const Listado = ({ liga }) => {
 
 
 
-                    <section className='flex flex-col gap-4 pt-5 pb-10'>
+                    <section className='flex flex-col gap-4 pt-5 pb-10 relative'>
 
 
                         {/* ------------------------- nombre del archivo .rar ----------------------- */}
@@ -179,7 +184,7 @@ const Listado = ({ liga }) => {
 
 
                         {/* ------------------------ nombre para el post de patreon -------------- */}
-                        <Article>
+                        <Article clase='sticky top-0 z-10 bg-green-500'>
                             <ArticleTitle><strong className='bg-black text-white px-1'>Patreon</strong> Title</ArticleTitle>
                             <ArticleBody>
                                 <p ref={cardRef}>{mayusculas(nombre)} #{coleccion}</p>
@@ -368,50 +373,50 @@ const Listado = ({ liga }) => {
                         {/* ------------------------------ descripcion para el post de discord ------------------ -------------- */}
 
                         {enlacePatreon && (
+                            <>
+                                <Article>
+                                    <ArticleTitle><strong className='bg-violet-500 text-white px-1'>Discord</strong> Descripcion {ia ? 'SuscribeAdult' : ''}</ArticleTitle>
+                                    <ArticleBody>
+                                        <div ref={cardTextDiscord}>
 
-                            <Article>
-                                <ArticleTitle><strong className='bg-violet-500 text-white px-1'>Discord</strong> Descripcion</ArticleTitle>
-                                <ArticleBody>
-                                    <div ref={cardTextDiscord}>
+                                            {/* ---------discord monitas chinas descripcion ----------------- */}
+                                            {monitas && contrasena && enlacePatreon && !buttonKurumi && enlaceMega && (
+                                                <>
+                                                    <h1>**{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}**</h1>
+                                                    <br />
+                                                    <ul className='list-disc'>
+                                                        <li>🟡 Utiliza el siguiente enlace para ir a Patreon y obtener la contraseña del archivo.</li>
+                                                        <li>🟡 Please use the link below to go to Patreon and get the password for the file.</li>
+                                                        <li>🟡 以下のリンクを使用して Patreon にアクセスし、ファイルのパスワードを取得します。</li>
+                                                    </ul>
+                                                    <br />
+                                                    <h5><strong>Link: </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
+                                                    <br />
+                                                    <ul>
+                                                        <li>🟢 Descarga el Archivo utilizando este enlace.</li>
+                                                        <li>🟢 Download the file using this link</li>
+                                                        <li>🟢 このリンクを使用してファイルをダウンロードしてください。</li>
+                                                    </ul>
+                                                    <br />
+                                                    <h5><strong>Link:  </strong>{enlaceMega ? enlaceMega : <LinkError />}</h5>
+                                                </>
+                                            )}
 
-                                        {/* ---------discord monitas chinas descripcion ----------------- */}
-                                        {monitas && contrasena && enlacePatreon && !buttonKurumi && enlaceMega && (
-                                            <>
-                                                <h1>**{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}**</h1>
-                                                <br />
-                                                <ul className='list-disc'>
-                                                    <li>🟡 Utiliza el siguiente enlace para ir a Patreon y obtener la contraseña del archivo.</li>
-                                                    <li>🟡 Please use the link below to go to Patreon and get the password for the file.</li>
-                                                    <li>🟡 以下のリンクを使用して Patreon にアクセスし、ファイルのパスワードを取得します。</li>
-                                                </ul>
-                                                <br />
-                                                <h5><strong>Link: </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
-                                                <br />
-                                                <ul>
-                                                    <li>🟢 Descarga el Archivo utilizando este enlace.</li>
-                                                    <li>🟢 Download the file using this link</li>
-                                                    <li>🟢 このリンクを使用してファイルをダウンロードしてください。</li>
-                                                </ul>
-                                                <br />
-                                                <h5><strong>Link:  </strong>{enlaceMega ? enlaceMega : <LinkError />}</h5>
-                                            </>
-                                        )}
+                                            {/* ------- discord cosplay ia subscribestar -------------*/}
+                                            {ia && contrasena && enlacePatreon && enlaceMega && !monitas && !buttonKurumi && (
 
-                                        {/* ------- discord cosplay ia -------------*/}
-                                        {ia && contrasena && enlacePatreon && enlaceMega && !monitas && !buttonKurumi && (
-
-                                            <>
-                                                <h1>**{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}**</h1>
-                                                <br />
-                                                <ul className='list-disc'>
-                                                    <li>🟡 Utiliza el siguiente enlace para ir a subscribestar.adult y obtener la contraseña del archivo.</li>
-                                                    <li>🟡 Use the following link to go to subscribestar.adult and get the file password.</li>
-                                                    <li>🟡 以下のリンクを使って subscribestar.adult にアクセスし、ファイルのパスワードを入手してください。</li>
-                                                </ul>
-                                                <br />
-                                                <h5><strong>Link:  </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
-                                                <br />
-                                                {/* <ul className='list-disc'>
+                                                <>
+                                                    <h1>**{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}**</h1>
+                                                    <br />
+                                                    <ul className='list-disc'>
+                                                        <li>🟡 Utiliza el siguiente enlace para ir a subscribestar.adult y obtener la contraseña del archivo.</li>
+                                                        <li>🟡 Use the following link to go to subscribestar.adult and get the file password.</li>
+                                                        <li>🟡 以下のリンクを使って subscribestar.adult にアクセスし、ファイルのパスワードを入手してください。</li>
+                                                    </ul>
+                                                    <br />
+                                                    <h5><strong>Link:  </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
+                                                    <br />
+                                                    {/* <ul className='list-disc'>
                                                     <li>🟠 Si no tienes cuenta de Patreon o no quieres pagar mensualmente, puedes comprar la clave del archivo en Gumroad.</li>
                                                     <li>🟠 If you don't have a Patreon account or don't want to pay monthly, you can buy the file key on Gumroad.</li>
                                                     <li>🟠 Patreonのアカウントをお持ちでない場合や、毎月お支払いしたくない場合は、Gumroadでファイルのキーを購入できます。</li>
@@ -419,46 +424,88 @@ const Listado = ({ liga }) => {
                                                 <br />
                                                 <h5><strong>Link:  </strong>{enlaceGumroad ? enlaceGumroad : <LinkError />}</h5>
                                                 <br /> */}
-                                                <ul>
-                                                    <li>🟢 Descarga el Archivo utilizando este enlace.</li>
-                                                    <li>🟢 Download the file using this link</li>
-                                                    <li>🟢 このリンクを使用してファイルをダウンロードしてください。</li>
-                                                </ul>
-                                                <br />
-                                                <h5><strong>Link:  </strong>{enlaceMega ? enlaceMega : <LinkError />}</h5>
+                                                    <ul>
+                                                        <li>🟢 Descarga el Archivo utilizando este enlace.</li>
+                                                        <li>🟢 Download the file using this link</li>
+                                                        <li>🟢 このリンクを使用してファイルをダウンロードしてください。</li>
+                                                    </ul>
+                                                    <br />
+                                                    <h5><strong>Link:  </strong>{enlaceMega ? enlaceMega : <LinkError />}</h5>
+                                                    <br />
+                                                    <br />
+                                                    .
 
-                                            </>
+                                                </>
 
-                                        )}
+                                            )}
 
-                                        {!ia && !monitas && !buttonKurumi && contrasena && enlaceMega && !enlaceGumroad && enlacePatreon && (
 
-                                            <>
-                                                <h1>**{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}**</h1>
-                                                <br />
-                                                <ul className='list-disc'>
-                                                    <li>🟡 Utiliza el siguiente enlace para ir a Patreon y obtener la contraseña del archivo.</li>
-                                                    <li>🟡 Please use the link below to go to Patreon and get the password for the file.</li>
-                                                    <li>🟡 以下のリンクを使用して Patreon にアクセスし、ファイルのパスワードを取得します。</li>
-                                                </ul>
-                                                <br />
-                                                <h5><strong>Link: </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
-                                                <br />
-                                                <ul className='list-disc'>
-                                                    <li>🟢 Descarga el Archivo utilizando este enlace.</li>
-                                                    <li>🟢 Download the file using this link</li>
-                                                    <li>🟢 このリンクを使用してファイルをダウンロードしてください。</li>
-                                                </ul>
-                                                <br />
-                                                <h5><strong>Link:  </strong>{enlaceMega ? enlaceMega : <LinkError />}</h5>
-                                            </>
-                                        )}
+                                            {!ia && !monitas && !buttonKurumi && contrasena && enlaceMega && !enlaceGumroad && enlacePatreon && (
 
-                                    </div>
-                                    <button className='button-copy' onClick={handleCopyCardTextDiscord}>Copy</button>
-                                </ArticleBody>
-                            </Article>
+                                                <>
+                                                    <h1>**{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}**</h1>
+                                                    <br />
+                                                    <ul className='list-disc'>
+                                                        <li>🟡 Utiliza el siguiente enlace para ir a Patreon y obtener la contraseña del archivo.</li>
+                                                        <li>🟡 Please use the link below to go to Patreon and get the password for the file.</li>
+                                                        <li>🟡 以下のリンクを使用して Patreon にアクセスし、ファイルのパスワードを取得します。</li>
+                                                    </ul>
+                                                    <br />
+                                                    <h5><strong>Link: </strong>{enlacePatreon ? enlacePatreon : <LinkError />}</h5>
+                                                    <br />
+                                                    <ul className='list-disc'>
+                                                        <li>🟢 Descarga el Archivo utilizando este enlace.</li>
+                                                        <li>🟢 Download the file using this link</li>
+                                                        <li>🟢 このリンクを使用してファイルをダウンロードしてください。</li>
+                                                    </ul>
+                                                    <br />
+                                                    <h5><strong>Link:  </strong>{enlaceMega ? enlaceMega : <LinkError />}</h5>
+                                                </>
+                                            )}
 
+                                        </div>
+                                        <button className='button-copy' onClick={handleCopyCardTextDiscord}>Copy</button>
+                                    </ArticleBody>
+                                </Article>
+
+
+                                { /*---------------- descripcion para el post de discord  booosty vip------------------ -------------- */}
+                                <Article>
+                                    <ArticleTitle><strong className='bg-violet-500 text-white px-1'>Discord</strong>{ia ? ' Boosty VIP' : ' '}</ArticleTitle>
+                                    <ArticleBody>
+                                        <div ref={cardTextDiscordBoosty}>
+
+
+                                            {/* ------- discord cosplay ia boosty vip  -------------*/}
+                                            {ia && contrasena && enlacePatreon && enlaceMega && !monitas && !buttonKurumi && (
+
+                                                <>
+                                                    <h1>**{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}**</h1>
+                                                    <br />
+                                                    <ul>
+                                                        <li>•  Descarga el Archivo utilizando este enlace.</li>
+                                                        <li>•  Download the file using this link</li>
+                                                        <li>•  このリンクを使用してファイルをダウンロードしてください。</li>
+                                                    </ul>
+                                                    <br />
+                                                    <h5><strong>🌍&nbsp;&nbsp;  </strong>{enlaceMega ? enlaceMega : <LinkError />}</h5>
+                                                    <br />
+                                                    <br />
+                                                    <Contrasena contrasena={contrasena} />
+                                                    <br />
+                                                    <br />
+                                                    .
+                                                </>
+
+                                            )}
+
+                                        </div>
+                                        <button className='button-copy' onClick={handleCopyCardTextDiscordBoosty}>Copy</button>
+                                    </ArticleBody>
+                                </Article>
+
+
+                            </>
 
                         )}
 
@@ -542,13 +589,13 @@ const Listado = ({ liga }) => {
                                             <div ref={card13Ref}>
                                                 <strong>Social networks</strong><br />
                                                 <span>{!buttonKurumi ? 'https://linktr.ee/monaschinas_ia' : 'https://linktr.ee/kurumitokisaki__'} </span><br /><br />
-                                                
+
                                                 {enlaceGumroad && !buttonKurumi && (
                                                     <>
-                                                    <strong>Support me on Boosty</strong><br />
-                                                    <span>https://boosty.to/monaschinasia</span><br /><br />
-                                                    <strong>Full gallery on Boosty:</strong><br />
-                                                    <span>{enlaceGumroad}</span>
+                                                        <strong>Support me on Boosty</strong><br />
+                                                        <span>https://boosty.to/monaschinasia</span><br /><br />
+                                                        <strong>Full gallery on Boosty:</strong><br />
+                                                        <span>{enlaceGumroad}</span>
                                                     </>
                                                 )}
                                             </div>

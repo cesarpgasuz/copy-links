@@ -1,6 +1,6 @@
 const Contrasena = ({contrasena}) => {
   return (
-    <strong>🔑 Pass: &nbsp; {contrasena}</strong>
+    <strong>🔑&nbsp; Pass: &nbsp; {contrasena}</strong>
   )
 }
 
