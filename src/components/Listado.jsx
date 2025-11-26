@@ -475,7 +475,26 @@ const Listado = ({ liga }) => {
                                     <ArticleBody>
                                         <div ref={cardTextDiscordBoosty}>
 
-
+                                            {/* -------descripcion para monitas chinas con contraseña discord */}
+                                            {nombre && contrasena && monitas && (
+                                                <>
+                                                    <h1>**{mayusculas(nombre)} #{coleccion} - {mayusculas(serie)}**</h1>
+                                                    <br />
+                                                    <ul>
+                                                        <li>•  Descarga el Archivo utilizando este enlace.</li>
+                                                        <li>•  Download the file using this link</li>
+                                                        <li>•  このリンクを使用してファイルをダウンロードしてください。</li>
+                                                    </ul>
+                                                    <br />
+                                                    <h5><strong>🌍&nbsp;&nbsp;  </strong>{enlaceMega ? enlaceMega : <LinkError />}</h5>
+                                                    <br />
+                                                    <br />
+                                                    <Contrasena contrasena={contrasena} />
+                                                    <br />
+                                                    <br />
+                                                    .
+                                                </>
+                                            )}
                                             {/* ------- discord cosplay ia boosty vip  -------------*/}
                                             {ia && contrasena && enlacePatreon && enlaceMega && !monitas && !buttonKurumi && (
 
