@@ -202,7 +202,7 @@ const Listado = ({ liga }) => {
                                     {/* -------descripcion para monas chinas sin contraseña */}
                                     {nombre && !contrasena && !monitas && !buttonKurumi && (
                                         <>
-                                            <TitlePersonajeDescriptionPatreon nombre={nombre} />
+                                            {/* <TitlePersonajeDescriptionPatreon nombre={nombre} />
 
                                             <br />
                                             <br />
@@ -212,15 +212,16 @@ const Listado = ({ liga }) => {
                                             <br />
                                             <span>◼️ Diviertete 🥳</span><br />
                                             <span>◼️ Have fun 🥳</span><br />
-                                            <span>◼️ 楽しんでください🥳</span>
+                                            <span>◼️ 楽しんでください🥳</span> */}
 
                                             <br />
                                             <br />
-                                            <span>🔽 Descarga la carpeta comprimida.</span><br />
-                                            <span>🔽 Download the compressed folder.</span><br />
+                                            <span>🔽 Descarga la carpeta comprimida.</span>
+                                            <span>🔽 Download the compressed folder.</span>
                                             <span>🔽 圧縮されたフォルダーをダウンロードしてください</span>
                                             <br />
-                                            <br />
+                                           
+                                            <p>🌍&nbsp; {enlaceMega ? enlaceMega : <LinkError />}</p>
                                             <br />
                                         </>
                                     )}
@@ -229,21 +230,21 @@ const Listado = ({ liga }) => {
                                     {nombre && contrasena && !monitas && enlaceMega && !ia && !enlacePatreon && (
 
                                         <>
-                                            <TitlePersonajeDescriptionPatreon nombre={nombre} />
+                                            {/* <TitlePersonajeDescriptionPatreon nombre={nombre} /> */}
 
                                             <br />
                                             <br />
-                                            <span>◼️ La colección completa está en el siguiente enlace.</span><br />
-                                            <span>◼️ The complete collection is in the following link.</span><br />
-                                            <span>◼️ 完全なコレクションは次のリンクにあります。</span>
+                                           <span>🔽 Descarga la carpeta comprimida.</span>
+                                            <span>🔽 Download the compressed folder.</span>
+                                            <span>🔽 圧縮されたフォルダーをダウンロードしてください</span>
+                                            <br />
+                                            <p>🌍&nbsp; {enlaceMega ? enlaceMega : <LinkError />}</p>
 
-                                            <p>🌍&nbsp; *{enlaceMega ? enlaceMega : <LinkError />}*</p>
-
+                                            
                                             <br />
                                             <Contrasena contrasena={contrasena} />
                                             <br />
-                                            <br />
-                                            <br />
+                                           
                                         </>
                                     )}
 
