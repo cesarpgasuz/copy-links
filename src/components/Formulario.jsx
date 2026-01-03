@@ -277,7 +277,10 @@ const Formulario = ({ setLiga }) => {
                                 id="monitasia"
                                 type="checkbox"
                                 checked={monitas}
-                                onChange={() => setMonitas(!monitas)}
+                                onChange={() => {setMonitas(!monitas)
+                                    setEnlacePatreon('a')
+                                }
+                                }
                                 className="hidden"
                             />
                         </div>
