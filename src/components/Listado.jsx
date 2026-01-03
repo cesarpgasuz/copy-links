@@ -594,7 +594,8 @@ const Listado = ({ liga }) => {
                                         <ArticleBody>
                                             <div ref={card15Ref}>
                                                 <strong>Social networks</strong><br />
-                                                <span>https://linktr.ee/monitaschinas92 </span><br /><br />
+                                                <span>https://linktr.ee/monitaschinas92 </span><br />
+                                                <span>https://discord.gg/T24gK8YJj9 </span><br /><br />
                                             </div>
                                             <button className='button-copy' onClick={handleCopyCard15}>Copy</button>
                                         </ArticleBody>
